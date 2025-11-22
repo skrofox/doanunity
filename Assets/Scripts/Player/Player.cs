@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
 
     public Player_IdleState idleState { get; private set; }
     public Player_MoveState moveState { get; private set; }
+
+    public Vector2 moveInput { get; private set; }
     private void Awake()
     {
         stateMachine = new StateMachine();
@@ -15,6 +17,20 @@ public class Player : MonoBehaviour
         idleState = new Player_IdleState(this, stateMachine, "idle");
         moveState = new Player_MoveState(this, stateMachine, "move");
 
+    }
+
+    private void OnEnable()
+    {
+        input.Enable();
+
+        input.Player.Movement.performed += context => moveInput = context.ReadValue<Vector2>();
+        input.Player.Movement.canceled += context => moveInput = Vector2.zero;
+    }
+
+
+    private void OnDisable()
+    {
+        input.Disable();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -26,6 +42,6 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        stateMachine.currentState.Update();
+        stateMachine.UpdateActiveState();
     }
 }
