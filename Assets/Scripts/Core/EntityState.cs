@@ -9,6 +9,8 @@ public abstract class EntityState
     protected Rigidbody2D rb;
     protected PlayerInputSet input;
 
+    protected float stateTimer;
+
     public EntityState(Player player, StateMachine stateMachine, string animBoolName)
     {
         this.player = player;
@@ -17,7 +19,7 @@ public abstract class EntityState
 
         anim = player.anim;
         rb = player.rb;
-        
+
         input = player.input;
     }
 
@@ -29,9 +31,15 @@ public abstract class EntityState
 
     public virtual void Update()
     {
+        stateTimer -= Time.deltaTime;
         //we going to run logic of the state here
         // Debug.Log($"I run update of {animBoolName}");
         anim.SetFloat("yVelocity", rb.linearVelocity.y);
+
+        if (input.Player.Dash.WasPressedThisFrame() && CanDash())
+        {
+            stateMachine.ChangeState(player.dashState);
+        }
     }
 
     public virtual void Exit()
@@ -39,5 +47,16 @@ public abstract class EntityState
         //this will be called, everytime we exit state and change to a new oned
         // Debug.Log($"I exit {animBoolName}");
         anim.SetBool(animBoolName, false);
+    }
+
+    private bool CanDash()
+    {
+        if (player.wallDetected)
+            return false;
+
+        if (stateMachine.currentState == player.dashState)
+            return false;
+        
+        return true;
     }
 }

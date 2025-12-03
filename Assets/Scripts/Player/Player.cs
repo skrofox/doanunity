@@ -13,7 +13,8 @@ public class Player : MonoBehaviour
     public Player_JumpState jumpState { get; private set; }
     public Player_FallState fallState { get; private set; }
     public Player_WallSlideState wallSlideState { get; private set; }
-    public Player_WallJumpState wallJumpState {get; private set;}
+    public Player_WallJumpState wallJumpState { get; private set; }
+    public Player_DashState dashState { get; private set; }
 
     public Vector2 moveInput { get; private set; }
 
@@ -30,6 +31,9 @@ public class Player : MonoBehaviour
     public float inAirMoveMultipler = 0.8f;
     [Range(0, 1)]
     public float wallSlideSlowMultiplier = .7f;
+    [Space]
+    public float dashDuration = .25f;
+    public float dashSpeed = 20f;
 
     [Header("Collision Detection")]
     [SerializeField] private float _groundedCheckDistance;
@@ -53,6 +57,8 @@ public class Player : MonoBehaviour
         fallState = new Player_FallState(this, stateMachine, "jumpFall");
         wallSlideState = new Player_WallSlideState(this, stateMachine, "wallSlide");
         wallJumpState = new Player_WallJumpState(this, stateMachine, "jumpFall");
+        dashState = new Player_DashState(this, stateMachine, "dash");
+
     }
 
     private void OnEnable()
