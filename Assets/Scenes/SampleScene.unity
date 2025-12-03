@@ -351,6 +351,7 @@ GameObject:
   - component: {fileID: 696168774}
   - component: {fileID: 696168775}
   - component: {fileID: 696168776}
+  - component: {fileID: 696168777}
   m_Layer: 0
   m_Name: Animator
   m_TagString: Untagged
@@ -450,6 +451,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &696168777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696168773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d661d0f6047b1804bb563304d716022b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1136446711
 GameObject:
   m_ObjectHideFlags: 0
@@ -616,6 +629,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
+  attackVelocity: []
+  attackVeclotityDuration: 0.1
+  comboResetTime: 1
   moveSpeed: 10
   jumpForce: 20
   wallJumpForce: {x: 8, y: 15}
@@ -637,7 +653,7 @@ Transform:
   m_GameObject: {fileID: 1345512789}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.64, y: -2.76, z: 0}
+  m_LocalPosition: {x: 1.15, y: -1.08, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -725,7 +741,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &1410203849
 BoxCollider2D:
   m_ObjectHideFlags: 0
