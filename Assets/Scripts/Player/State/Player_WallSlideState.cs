@@ -1,16 +1,42 @@
 using UnityEngine;
 
-public class Player_WallSlideState : MonoBehaviour
+public class Player_WallSlideState : EntityState
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public Player_WallSlideState(Player player, StateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
     {
-        
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Update()
     {
-        
+        base.Update();
+        HandleWallSlide();
+
+        if (input.Player.Jump.WasPressedThisFrame())
+        {
+            stateMachine.ChangeState(player.wallJumpState);
+        }
+
+        if (player.wallDetected == false)
+        {
+            stateMachine.ChangeState(player.fallState);
+        }
+
+        if (player.groundDetected)
+        {
+            stateMachine.ChangeState(player.idleState);
+            player.Flip();
+        }
+    }
+
+    private void HandleWallSlide()
+    {
+        if (player.moveInput.y < 0 && player.wallDetected == false)
+        {
+            player.SetVelocity(player.moveInput.x, rb.linearVelocity.y);
+        }
+        else
+        {
+            player.SetVelocity(player.moveInput.x, rb.linearVelocity.y * player.wallSlideSlowMultiplier);
+        }
     }
 }
