@@ -9,16 +9,21 @@ public class Player_GroundedState : EntityState
     public override void Update()
     {
         base.Update();
-
-        // if(input.Player.Jump.WasCompletedThisFrame()) //thả nút nhảy => nhảy
-        if (input.Player.Jump.WasPressedThisFrame()) //nhấn nút nhảy => nhảy
-        {
-            stateMachine.ChangeState(player.jumpState);
-        }
-
-        if (rb.linearVelocity.y < 0)
+        if (rb.linearVelocity.y < 0 && player.groundDetected == false)
         {
             stateMachine.ChangeState(player.fallState);
         }
+
+        // if(input.Player.Jump.WasCompletedThisFrame()) //thả nút nhảy => nhảy
+        if (input.Player.Jump.WasPerformedThisFrame()) //nhấn nút nhảy => nhảy
+        {
+            stateMachine.ChangeState(player.jumpState);
+        }
+        if (input.Player.Attack.WasPerformedThisFrame())
+        {
+            stateMachine.ChangeState(player.basicAttackState);
+        }
+
+
     }
 }
