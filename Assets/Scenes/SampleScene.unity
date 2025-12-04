@@ -629,7 +629,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
-  attackVelocity: []
+  attackVelocity:
+  - {x: 2.5, y: 0.75}
+  - {x: 1, y: 2}
+  - {x: 3, y: 0.5}
   attackVeclotityDuration: 0.1
   comboResetTime: 1
   moveSpeed: 10
