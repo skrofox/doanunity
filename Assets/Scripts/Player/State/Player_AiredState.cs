@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Player_AiredState : EntityState
 {
-    public Player_AiredState(Player player, StateMachine stateMachine, string animBoolName) : base (player, stateMachine, animBoolName)
+    public Player_AiredState(Player player, StateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
     {
     }
 
@@ -11,9 +11,11 @@ public class Player_AiredState : EntityState
     {
         base.Update();
 
-        if(player.moveInput.x != 0)
-        {
+        if (player.moveInput.x != 0)
             player.SetVelocity(player.moveInput.x * (player.moveSpeed * player.inAirMoveMultipler), rb.linearVelocity.y);
+        if (input.Player.Attack.WasPressedThisFrame())
+        {
+            stateMachine.ChangeState(player.jumpAttackState);
         }
     }
 }

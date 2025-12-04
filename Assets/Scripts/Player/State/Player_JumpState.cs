@@ -1,4 +1,4 @@
-using Unity.VisualScripting;
+﻿using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player_JumpState : Player_AiredState
@@ -20,7 +20,8 @@ public class Player_JumpState : Player_AiredState
     {
         base.Update();
 
-        if (rb.linearVelocity.y < 0)
+        //chac chan rang, chỉ khi nhảy mà không đánh => vào trạng thái rơi
+        if (rb.linearVelocity.y < 0 && stateMachine.currentState != player.jumpAttackState)
         {
             stateMachine.ChangeState(player.fallState);
         }
