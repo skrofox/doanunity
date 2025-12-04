@@ -49,6 +49,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float _groundedCheckDistance;
     [SerializeField] private float _wallCheckDistance;
     [SerializeField] private LayerMask whatIsGround;
+    [SerializeField] private Transform primatyWallCheck;
+    [SerializeField] private Transform secondaryWallCheck;
 
     public bool groundDetected { get; private set; }
     public bool wallDetected { get; private set; }
@@ -79,7 +81,6 @@ public class Player : MonoBehaviour
 
         input.Player.Movement.performed += context => moveInput = context.ReadValue<Vector2>();
         input.Player.Movement.canceled += context => moveInput = Vector2.zero;
-
 
     }
 
@@ -149,14 +150,17 @@ public class Player : MonoBehaviour
     private void HandleCollisionDetection()
     {
         groundDetected = Physics2D.Raycast(transform.position, Vector2.down, _groundedCheckDistance, whatIsGround);
-        wallDetected = Physics2D.Raycast(transform.position, Vector2.right * facingDir, _wallCheckDistance, whatIsGround);
+        wallDetected = Physics2D.Raycast(primatyWallCheck.position, Vector2.right * facingDir, _wallCheckDistance, whatIsGround)
+            && Physics2D.Raycast(secondaryWallCheck.position, Vector2.right * facingDir, _wallCheckDistance, whatIsGround);
+
     }
 
     void OnDrawGizmos()
     {
         //nhu nhau, same way
         Gizmos.DrawLine(transform.position, transform.position + (Vector3.down * _groundedCheckDistance));
-        Gizmos.DrawLine(transform.position, transform.position + new Vector3(facingDir * _wallCheckDistance, 0));
+        Gizmos.DrawLine(primatyWallCheck.position, primatyWallCheck.position + new Vector3(facingDir * _wallCheckDistance, 0));
+        Gizmos.DrawLine(secondaryWallCheck.position, secondaryWallCheck.position + new Vector3(facingDir * _wallCheckDistance, 0));
     }
 
 }
