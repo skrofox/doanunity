@@ -7510,7 +7510,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 1
-      m_TileSpriteIndex: 8
+      m_TileSpriteIndex: 14
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -7577,8 +7577,8 @@ Tilemap:
     m_Data: {fileID: 8586281397320397129, guid: 98976eccb564d1141b61f92e08ce45f4, type: 3}
   - m_RefCount: 28
     m_Data: {fileID: 6551193136979614531, guid: 88783c2c3482f5c4e93a017277c1fb64, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -864342696791588969, guid: 7d668d35ade1f0d4399b049740c39c01, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 4
     m_Data: {fileID: -6235631481291177234, guid: 1508361bff8873f47bc9fd3fd505b37b, type: 3}
   - m_RefCount: 4
@@ -7589,8 +7589,8 @@ Tilemap:
     m_Data: {fileID: -2926781768872514201, guid: 27f79a5cd9feff8499fccbbab22217e0, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -864342696791588969, guid: 7d668d35ade1f0d4399b049740c39c01, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -2720922381176439266, guid: 6745d0a876beb21409686e6402d08167, type: 3}
   - m_RefCount: 2
@@ -16647,6 +16647,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
+  _groundedCheckDistance: 1.4
+  _wallCheckDistance: 0.4
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 64
+  primatyWallCheck: {fileID: 1085295704}
+  secondaryWallCheck: {fileID: 355332827}
   attackVelocity:
   - {x: 2.5, y: 0.75}
   - {x: 1, y: 2}
@@ -16661,13 +16668,6 @@ MonoBehaviour:
   wallSlideSlowMultiplier: 0.7
   dashDuration: 0.25
   dashSpeed: 20
-  _groundedCheckDistance: 1.4
-  _wallCheckDistance: 0.4
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 64
-  primatyWallCheck: {fileID: 1085295704}
-  secondaryWallCheck: {fileID: 355332827}
 --- !u!4 &1345512791
 Transform:
   m_ObjectHideFlags: 0
