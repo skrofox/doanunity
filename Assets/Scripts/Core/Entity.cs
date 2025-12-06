@@ -12,6 +12,7 @@ public class Entity : MonoBehaviour
     [SerializeField] private float _groundedCheckDistance;
     [SerializeField] private float _wallCheckDistance;
     [SerializeField] private LayerMask whatIsGround;
+    [SerializeField] private Transform groundCheck;
     [SerializeField] private Transform primatyWallCheck;
     [SerializeField] private Transform secondaryWallCheck;
 
@@ -29,8 +30,6 @@ public class Entity : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         stateMachine = new StateMachine();
-
-
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -79,17 +78,26 @@ public class Entity : MonoBehaviour
 
     private void HandleCollisionDetection()
     {
-        groundDetected = Physics2D.Raycast(transform.position, Vector2.down, _groundedCheckDistance, whatIsGround);
-        wallDetected = Physics2D.Raycast(primatyWallCheck.position, Vector2.right * facingDir, _wallCheckDistance, whatIsGround)
-            && Physics2D.Raycast(secondaryWallCheck.position, Vector2.right * facingDir, _wallCheckDistance, whatIsGround);
+        groundDetected = Physics2D.Raycast(groundCheck.position, Vector2.down, _groundedCheckDistance, whatIsGround);
+        if (secondaryWallCheck != null)
+        {
+            wallDetected = Physics2D.Raycast(primatyWallCheck.position, Vector2.right * facingDir, _wallCheckDistance, whatIsGround)
+                && Physics2D.Raycast(secondaryWallCheck.position, Vector2.right * facingDir, _wallCheckDistance, whatIsGround);
+        }
+        else
+        {
+            wallDetected = Physics2D.Raycast(primatyWallCheck.position, Vector2.right * facingDir, _wallCheckDistance, whatIsGround);
+        }
 
     }
 
     void OnDrawGizmos()
     {
         //nhu nhau, same way
-        Gizmos.DrawLine(transform.position, transform.position + (Vector3.down * _groundedCheckDistance));
+        Gizmos.DrawLine(groundCheck.position, groundCheck.position + (Vector3.down * _groundedCheckDistance));
         Gizmos.DrawLine(primatyWallCheck.position, primatyWallCheck.position + new Vector3(facingDir * _wallCheckDistance, 0));
-        Gizmos.DrawLine(secondaryWallCheck.position, secondaryWallCheck.position + new Vector3(facingDir * _wallCheckDistance, 0));
+        
+        if (secondaryWallCheck != null)
+            Gizmos.DrawLine(secondaryWallCheck.position, secondaryWallCheck.position + new Vector3(facingDir * _wallCheckDistance, 0));
     }
 }
