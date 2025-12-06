@@ -13,7 +13,7 @@ public class ParallaxBackground : MonoBehaviour
     {
         mainCamera = Camera.main;
         cameraHaftWidth = mainCamera.orthographicSize * mainCamera.aspect;
-        CaculateImageLength();
+        InitializeLayers();
     }
 
     private void FixedUpdate()
@@ -32,7 +32,7 @@ public class ParallaxBackground : MonoBehaviour
         }
     }
 
-    private void CaculateImageLength()
+    private void InitializeLayers()
     {
         foreach(ParallaxLayer layer in backgroundLayers)
         {
