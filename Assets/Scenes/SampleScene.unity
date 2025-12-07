@@ -7935,7 +7935,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.497856, y: 2.7830846, z: 17.732918}
+  m_LocalPosition: {x: -0.9607725, y: 3.1118345, z: 17.732918}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8001,7 +8001,7 @@ Transform:
   m_GameObject: {fileID: 536570810}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.680773, y: 2.7918344, z: 17.732918}
+  m_LocalPosition: {x: -0.9607725, y: 3.1118345, z: 17.732918}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16864,13 +16864,13 @@ GameObject:
   - component: {fileID: 1345512790}
   - component: {fileID: 1345512793}
   - component: {fileID: 1345512792}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1345512790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16884,11 +16884,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
-  _groundedCheckDistance: 1.4
-  _wallCheckDistance: 0.4
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
+  _groundedCheckDistance: 1.4
+  _wallCheckDistance: 0.4
   groundCheck: {fileID: 1345512791}
   primatyWallCheck: {fileID: 1085295704}
   secondaryWallCheck: {fileID: 355332827}
@@ -16915,7 +16915,7 @@ Transform:
   m_GameObject: {fileID: 1345512789}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.16, y: -2.64, z: 0}
+  m_LocalPosition: {x: 8.56, y: -2.32, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -17318,7 +17318,7 @@ GameObject:
   - component: {fileID: 1990499827}
   - component: {fileID: 1990499826}
   - component: {fileID: 1990499825}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy_Skeleton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17411,17 +17411,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
-  _groundedCheckDistance: 0.5
-  _wallCheckDistance: 0.5
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
+  _groundedCheckDistance: 0.5
+  _wallCheckDistance: 0.5
   groundCheck: {fileID: 762737387}
   primatyWallCheck: {fileID: 1990499828}
   secondaryWallCheck: {fileID: 0}
+  battleMoveSpeed: 2.8
+  attackDistance: 2
   idleTime: 2
   moveSpeed: 1.4
   moveAnimSpeedMultiplier: 0
+  WhatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 128
+  playerCheck: {fileID: 1990499828}
+  playerCheckDistance: 10
 --- !u!4 &1990499828
 Transform:
   m_ObjectHideFlags: 0
@@ -17431,7 +17438,7 @@ Transform:
   m_GameObject: {fileID: 1990499824}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.28, y: -0.79, z: 0.8252964}
+  m_LocalPosition: {x: -8.87, y: -2.78, z: 0.8252964}
   m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_ConstrainProportionsScale: 1
   m_Children:

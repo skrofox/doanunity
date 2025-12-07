@@ -3,6 +3,7 @@ using UnityEngine;
 public class Enemy_BattleState : EnemyState
 {
     private Transform player; //player vector position
+    private float lastTimeWasInBattle;
     public Enemy_BattleState(Enemy enemy, StateMachine stateMachine, string animBoolName) : base(enemy, stateMachine, animBoolName)
     {
     }
@@ -13,7 +14,13 @@ public class Enemy_BattleState : EnemyState
 
         if (player == null)
         {
-            player = enemy.playerDetection().transform;
+            player = enemy.playerDetected().transform;
+        }
+
+        if (ShouldRetreat())
+        {
+            rb.linearVelocity = new Vector2(enemy.retreatVelocity.x * -DirectionToPlayer(), enemy.retreatVelocity.y);
+            enemy.HandleFlip(DirectionToPlayer());
         }
     }
 
@@ -21,7 +28,13 @@ public class Enemy_BattleState : EnemyState
     {
         base.Update();
 
-        if (WithinAttackRange())
+        if(enemy.playerDetected() == true)
+            UpdateBattleTimer();
+
+        if (BattleTimeIsOver())
+            stateMachine.ChangeState(enemy.idleState);
+
+        if (WithinAttackRange() && enemy.playerDetected())
         {
             stateMachine.ChangeState(enemy.attackState);
         } else
@@ -30,11 +43,16 @@ public class Enemy_BattleState : EnemyState
         }
     }
 
+    private void UpdateBattleTimer() => lastTimeWasInBattle = Time.time;
+    private bool BattleTimeIsOver() => Time.time > lastTimeWasInBattle + enemy.battleTimeDuration;
+
     private bool WithinAttackRange()
     {
         //khoang cach den nguoi choi < khoang cach tan cong cua enemy => tra ve true, nguoc lai tra ve false
         return DistanceToPlayer() < enemy.attackDistance;
     }
+
+    private bool ShouldRetreat() => DistanceToPlayer() < enemy.minRetreatDistance;
 
     //khoang cach den nguoi choi
     private float DistanceToPlayer()

@@ -12,7 +12,9 @@ public class Enemy_AttackState : EnemyState
 
         if (triggerCalled)
         {
-            stateMachine.ChangeState(enemy.idleState);
+            //chuyen sang battle state khi phat hien nguoi choi, duoi theo,...
+            //stateMachine.ChangeState(enemy.idleState);
+            stateMachine.ChangeState(enemy.battleState);
         }
     }
 }

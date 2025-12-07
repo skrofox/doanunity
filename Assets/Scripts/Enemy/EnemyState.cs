@@ -19,7 +19,10 @@ public class EnemyState : EntityState
         {
             stateMachine.ChangeState(enemy.attackState);
         }
-
+        float battleAnimSpeedMultiplier = enemy.battleMoveSpeed / enemy.moveSpeed;
+        //skeleton di chuyen, animations nhanh hon, khong truot tren mat dat
+        anim.SetFloat("battleAnimSpeedMultiplier", battleAnimSpeedMultiplier);
+        //toc do di chuyen tang, animation speed tang.
         anim.SetFloat("moveAnimSpeedMultiplier", enemy.moveAnimSpeedMultiplier);
         anim.SetFloat("xVelocity", rb.linearVelocity.y);
     }

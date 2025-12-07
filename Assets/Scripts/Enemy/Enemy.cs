@@ -10,7 +10,9 @@ public class Enemy : Entity
     [Header("Battle Details")]
     public float battleMoveSpeed = 2.8f;//nhanh gap 2
     public float attackDistance = 2;//khoang cach tan cong
-
+    public float battleTimeDuration = 5;//thoi gian trong trang thai battle khi khong phat hien nguoi choi nua
+    public float minRetreatDistance = 5;//Nguoi choi dung qua gan thi enemy lui lai 1 chut
+    public Vector2 retreatVelocity;
 
     [Header("Movement Details")]
     public float idleTime = 1.5f;
@@ -23,7 +25,14 @@ public class Enemy : Entity
     [SerializeField] private Transform playerCheck;
     [SerializeField] private float playerCheckDistance = 10f;
 
-    public RaycastHit2D playerDetection()
+
+    protected override void Update()
+    {
+        base.Update();
+
+    }
+
+    public RaycastHit2D playerDetected()
     {
         RaycastHit2D hit = Physics2D.Raycast(playerCheck.position, Vector2.right * facingDir, playerCheckDistance, WhatIsPlayer | whatIsGround);
 
@@ -44,8 +53,12 @@ public class Enemy : Entity
         Gizmos.color = Color.yellow;
         Gizmos.DrawLine(transform.position, new Vector3(playerCheck.position.x + (facingDir * playerCheckDistance), playerCheck.position.y));
         
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(transform.position, new Vector3(playerCheck.position.x + (facingDir * minRetreatDistance), playerCheck.position.y));
+        
         Gizmos.color = Color.blue;
         Gizmos.DrawLine(transform.position, new Vector3(playerCheck.position.x + (facingDir * attackDistance), playerCheck.position.y));
+
 
     }
 
