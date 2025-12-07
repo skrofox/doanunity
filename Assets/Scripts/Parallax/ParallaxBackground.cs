@@ -4,15 +4,14 @@ public class ParallaxBackground : MonoBehaviour
 {
     private Camera mainCamera;
     private float lastCameraPositionX;
-    private float cameraHaftWidth;
+    private float cameraHalfWidth;
 
     [SerializeField] private ParallaxLayer[] backgroundLayers;
-
 
     private void Awake()
     {
         mainCamera = Camera.main;
-        cameraHaftWidth = mainCamera.orthographicSize * mainCamera.aspect;
+        cameraHalfWidth = mainCamera.orthographicSize * mainCamera.aspect;
         InitializeLayers();
     }
 
@@ -22,8 +21,8 @@ public class ParallaxBackground : MonoBehaviour
         float distanceToMove = currentCameraPositionX - lastCameraPositionX;
         lastCameraPositionX = currentCameraPositionX;
 
-        float cameraRightEdge = currentCameraPositionX + cameraHaftWidth;
-        float cameraLeftEdge = currentCameraPositionX - cameraHaftWidth;
+        float cameraLeftEdge = currentCameraPositionX - cameraHalfWidth;
+        float cameraRightEdge = currentCameraPositionX + cameraHalfWidth;
 
         foreach (ParallaxLayer layer in backgroundLayers)
         {
@@ -34,9 +33,7 @@ public class ParallaxBackground : MonoBehaviour
 
     private void InitializeLayers()
     {
-        foreach(ParallaxLayer layer in backgroundLayers)
-        {
-            layer.CaculateImageWidth();
-        }
+        foreach (ParallaxLayer layer in backgroundLayers)
+            layer.CalculateImageWidth();
     }
 }

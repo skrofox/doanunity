@@ -8,33 +8,27 @@ public class ParallaxLayer
     [SerializeField] private float imageWidthOffset = 10;
 
     private float imageFullWidth;
-    private float imageHaftWidth;
+    private float imageHalfWidth;
 
-    public void CaculateImageWidth()
+    public void CalculateImageWidth()
     {
         imageFullWidth = background.GetComponent<SpriteRenderer>().bounds.size.x;
-        imageHaftWidth = imageFullWidth / 2;
+        imageHalfWidth = imageFullWidth / 2;
     }
 
     public void Move(float distanceToMove)
     {
-        //same logic but different
-        background.position += Vector3.right * (distanceToMove * parallaxMultiplier); //new Vector3(distanceToMove * parallaxMultiplier, 0);
+        background.position += Vector3.right * (distanceToMove * parallaxMultiplier);
     }
 
-    public void LoopBackground(float cameraLeftEdge, float cameraRightEdge)
+    public void LoopBackground(float cameraLefteEdge, float cameraRightEdge)
     {
-        float imageRightEdge = (background.position.x + imageHaftWidth) - imageWidthOffset;
-        float imageLeftEdge = (background.position.x - imageHaftWidth) + imageWidthOffset;
+        float imageRightEdge = (background.position.x + imageHalfWidth) - imageWidthOffset;
+        float imageLeftEdge = (background.position.x - imageHalfWidth) + imageWidthOffset;
 
-        if (imageRightEdge < cameraLeftEdge)
-        {
+        if (imageRightEdge < cameraLefteEdge)
             background.position += Vector3.right * imageFullWidth;
-        }
         else if (imageLeftEdge > cameraRightEdge)
-        {
             background.position += Vector3.right * -imageFullWidth;
-        }
-
     }
 }

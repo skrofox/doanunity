@@ -39,16 +39,16 @@ TagManager:
   - 
   m_SortingLayers:
   - name: Background
-    uniqueID: 3597333433
+    uniqueID: 596823231
     locked: 0
   - name: Ground
-    uniqueID: 4116855571
+    uniqueID: 1379488757
     locked: 0
   - name: Enemy
-    uniqueID: 3351656813
+    uniqueID: 3500169307
     locked: 0
   - name: Player
-    uniqueID: 2919808729
+    uniqueID: 1831899741
     locked: 0
   - name: Default
     uniqueID: 0
