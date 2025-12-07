@@ -7,6 +7,11 @@ public class Enemy : Entity
     public Enemy_AttackState attackState;
     public Enemy_BattleState battleState;
 
+    [Header("Battle Details")]
+    public float battleMoveSpeed = 2.8f;//nhanh gap 2
+    public float attackDistance = 2;//khoang cach tan cong
+
+
     [Header("Movement Details")]
     public float idleTime = 1.5f;
     public float moveSpeed = 1.4f;
@@ -38,6 +43,10 @@ public class Enemy : Entity
 
         Gizmos.color = Color.yellow;
         Gizmos.DrawLine(transform.position, new Vector3(playerCheck.position.x + (facingDir * playerCheckDistance), playerCheck.position.y));
+        
+        Gizmos.color = Color.blue;
+        Gizmos.DrawLine(transform.position, new Vector3(playerCheck.position.x + (facingDir * attackDistance), playerCheck.position.y));
+
     }
 
 }
