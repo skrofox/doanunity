@@ -11,14 +11,11 @@ public class EnemyState : EntityState
         anim = enemy.anim;
     }
 
-    public override void Update()
-    {
-        base.Update();
 
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            stateMachine.ChangeState(enemy.attackState);
-        }
+    public override void UpdateAnimationParameters()
+    {
+        base.UpdateAnimationParameters();
+
         float battleAnimSpeedMultiplier = enemy.battleMoveSpeed / enemy.moveSpeed;
         //skeleton di chuyen, animations nhanh hon, khong truot tren mat dat
         anim.SetFloat("battleAnimSpeedMultiplier", battleAnimSpeedMultiplier);
@@ -26,5 +23,4 @@ public class EnemyState : EntityState
         anim.SetFloat("moveAnimSpeedMultiplier", enemy.moveAnimSpeedMultiplier);
         anim.SetFloat("xVelocity", rb.linearVelocity.y);
     }
-    
 }
