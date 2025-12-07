@@ -9,9 +9,9 @@ public class Entity : MonoBehaviour
 
 
     [Header("Collision Detection")]
+    [SerializeField] protected LayerMask whatIsGround;
     [SerializeField] private float _groundedCheckDistance;
     [SerializeField] private float _wallCheckDistance;
-    [SerializeField] private LayerMask whatIsGround;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private Transform primatyWallCheck;
     [SerializeField] private Transform secondaryWallCheck;
@@ -91,7 +91,7 @@ public class Entity : MonoBehaviour
 
     }
 
-    void OnDrawGizmos()
+    protected virtual void OnDrawGizmos()
     {
         //nhu nhau, same way
         Gizmos.DrawLine(groundCheck.position, groundCheck.position + (Vector3.down * _groundedCheckDistance));
