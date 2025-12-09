@@ -3,8 +3,16 @@ using UnityEngine;
 
 public class Entity_Health : MonoBehaviour
 {
+    private Entity_VFX entityVfx;
+
     [SerializeField] protected float maxHp = 100;
     [SerializeField] protected bool isDead = false;
+
+
+    protected virtual void Awake()
+    {
+        entityVfx = GetComponent<Entity_VFX>();
+    }
 
 
     public virtual void TakeDamage(float damage, Transform damageDealer)
@@ -12,6 +20,7 @@ public class Entity_Health : MonoBehaviour
         if (isDead)
             return;
         ///
+        entityVfx?.PlayOnDamageVfx();
 
         ReduceHp(damage);
     }
