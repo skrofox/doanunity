@@ -489,6 +489,7 @@ GameObject:
   - component: {fileID: 274070551}
   - component: {fileID: 274070550}
   - component: {fileID: 274070549}
+  - component: {fileID: 274070552}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -539,7 +540,7 @@ Transform:
   m_GameObject: {fileID: 274070542}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.18, y: 0.27, z: 0}
+  m_LocalPosition: {x: -9.92, y: 0.26, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -643,7 +644,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHp: 0
-  maxHp: 100
   isDead: 0
   knockbackPower: {x: 1.5, y: 2.5}
   heavyKnockbackPower: {x: 3, y: 5}
@@ -669,6 +669,22 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   CounterRecovery: 0
+--- !u!114 &274070552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274070542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b13229548e2d4bd4f987e187a636ad5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth:
+    baseValue: 100
+  vitality:
+    baseValue: 20
 --- !u!1 &344415102
 GameObject:
   m_ObjectHideFlags: 0
@@ -1167,7 +1183,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16.204391, y: -1.0670385, z: 22.692577}
+  m_LocalPosition: {x: -12.94439, y: -1.0770385, z: 22.692577}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -62000,7 +62016,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 1.04}
+  m_AnchoredPosition: {x: 0, y: 1}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1448721527
@@ -62106,7 +62122,7 @@ Transform:
   m_GameObject: {fileID: 1454656417}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16.204391, y: -1.0670385, z: 22.692577}
+  m_LocalPosition: {x: -12.94439, y: -1.0770385, z: 22.692577}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -62809,6 +62825,7 @@ GameObject:
   - component: {fileID: 2066557397}
   - component: {fileID: 2066557400}
   - component: {fileID: 2066557401}
+  - component: {fileID: 2066557402}
   m_Layer: 8
   m_Name: Enemy_Skeleton
   m_TagString: Untagged
@@ -62968,7 +62985,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHp: 0
-  maxHp: 100
   isDead: 0
   knockbackPower: {x: 1.5, y: 2.5}
   heavyKnockbackPower: {x: 3, y: 5}
@@ -62992,6 +63008,22 @@ MonoBehaviour:
   hitVfxColor: {r: 0.5411765, g: 0.5411765, b: 0.5411765, a: 1}
   hitVfx: {fileID: 5066053127664502388, guid: 0646b9acca8400d44b591da564235bfb, type: 3}
   attackAlert: {fileID: 506811264}
+--- !u!114 &2066557402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066557392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b13229548e2d4bd4f987e187a636ad5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth:
+    baseValue: 100
+  vitality:
+    baseValue: 0
 --- !u!1 &2067852099
 GameObject:
   m_ObjectHideFlags: 0
