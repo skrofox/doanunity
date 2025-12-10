@@ -18,7 +18,7 @@ public class Player_CounterAttackState : PlayerState
 
         anim.SetBool("counterAttackPerformed", true);
     }
-
+    
     public override void Update()
     {
         base.Update();
