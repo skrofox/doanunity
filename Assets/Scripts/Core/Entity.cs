@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Entity : MonoBehaviour
@@ -19,6 +20,10 @@ public class Entity : MonoBehaviour
     [SerializeField] private Transform secondaryWallCheck;
     public bool groundDetected { get; private set; }
     public bool wallDetected { get; private set; }
+
+    //Condition variables
+    private bool isKnock;
+    private Coroutine knockbackCo;
 
     protected virtual void Awake()
     {
@@ -45,8 +50,30 @@ public class Entity : MonoBehaviour
         stateMachine.currentState.AnimationTrigger();
     }
 
+    public void ReciveKnockback(Vector2 knockback, float duration)
+    {
+        if (knockbackCo != null)
+            StopCoroutine(knockbackCo);
+        
+        knockbackCo = StartCoroutine(KnockBackCo(knockback, duration));
+    }
+
+    private IEnumerator KnockBackCo(Vector2 knockback, float duration)
+    {
+        isKnock = true;
+        rb.linearVelocity = knockback;
+
+        yield return new WaitForSeconds(duration);
+
+        rb.linearVelocity = Vector2.zero;
+        isKnock = false;
+    }
+
     public void SetVelocity(float xVelocity, float yVelocity)
     {
+        if (isKnock)
+            return;
+
         rb.linearVelocity = new Vector2(xVelocity, yVelocity);
         HandleFlip(xVelocity);
     }
@@ -87,7 +114,7 @@ public class Entity : MonoBehaviour
         Gizmos.DrawLine(groundCheck.position, groundCheck.position + new Vector3(0, -groundCheckDistance));
         Gizmos.DrawLine(primaryWallCheck.position, primaryWallCheck.position + new Vector3(wallCheckDistance * facingDir, 0));
 
-        if(secondaryWallCheck != null)
+        if (secondaryWallCheck != null)
             Gizmos.DrawLine(secondaryWallCheck.position, secondaryWallCheck.position + new Vector3(wallCheckDistance * facingDir, 0));
     }
 }
