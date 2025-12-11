@@ -28,13 +28,30 @@ public class Entity_Stats : MonoBehaviour
         return finalDamage;
     }
 
-    public float GetMaxHealth()
+    public float GetArmorMitigation(float armorReduction)
     {
-        float baseMaxHealth = maxHealth.GetValue();
-        float bonusMaxHealth = major.vitality.GetValue() * 5;
-        float finalMaxHealth = baseMaxHealth + bonusMaxHealth;
+        float baseArmor = defence.armor.GetValue();
+        float bonusArmor = major.vitality.GetValue(); //Bonus armor from Vitality: +1 per VIT
+        float totalArmor = baseArmor + bonusArmor;
 
-        return finalMaxHealth;
+        //float reductionMultiplier = Mathf.Clamp(1 - armorReduction, 0, 1);
+        float reductionMultiplier = Mathf.Clamp01(1 - armorReduction);
+        float effectiveArmor = totalArmor * reductionMultiplier;
+
+        float mitigation = effectiveArmor / (effectiveArmor + 100);
+        float mitigationCap = .50f; //max mitigation will be capped at 50%
+
+        float finalMitigation = Mathf.Clamp(mitigation, 0, mitigationCap);
+
+        return finalMitigation;
+    }
+
+    public float GetArmorReduction()
+    {
+        //Total Armor Reduction as multiplier (e.g 30 / 100 = 0.3f - multiplier);
+        float finalReduction = offense.armorReduction.GetValue() / 100;
+
+        return finalReduction;
     }
 
     public float GetEvasion()
@@ -49,5 +66,14 @@ public class Entity_Stats : MonoBehaviour
         float finalEvasion = Mathf.Clamp(totalEvasion, 0, evasionCap);
 
         return finalEvasion;
+    }
+
+    public float GetMaxHealth()
+    {
+        float baseMaxHealth = maxHealth.GetValue();
+        float bonusMaxHealth = major.vitality.GetValue() * 5;
+        float finalMaxHealth = baseMaxHealth + bonusMaxHealth;
+
+        return finalMaxHealth;
     }
 }

@@ -8,6 +8,7 @@ public class Stat_OffenseGroup
     public Stat damage;
     public Stat critPower;
     public Stat critChange;
+    public Stat armorReduction;
 
     //elemental damage // sat thuong nguyen to
     public Stat fireDamage;
