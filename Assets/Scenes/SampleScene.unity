@@ -631,6 +631,7 @@ MonoBehaviour:
   onDamageVFXDuration: 0.13
   hitVfxColor: {r: 1, g: 0.9909024, b: 0.2999999, a: 1}
   hitVfx: {fileID: 5066053127664502388, guid: 0646b9acca8400d44b591da564235bfb, type: 3}
+  critHitVfx: {fileID: 0}
 --- !u!114 &274070550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -662,7 +663,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b9049db295cd374dad98c70b6024ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
   targetCheck: {fileID: 2045349845}
   targetCheckRadius: 1
   WhatIsTarget:
@@ -696,9 +696,9 @@ MonoBehaviour:
     damage:
       baseValue: 10
     critPower:
-      baseValue: 0
+      baseValue: 100
     critChange:
-      baseValue: 0
+      baseValue: 100
     fireDamage:
       baseValue: 0
     iceDamage:
@@ -62997,7 +62997,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71b08f47bf1d1d442ae3607c8c4c033f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
   targetCheck: {fileID: 946899912}
   targetCheckRadius: 1
   WhatIsTarget:
@@ -63038,6 +63037,7 @@ MonoBehaviour:
   onDamageVFXDuration: 0.13
   hitVfxColor: {r: 0.5411765, g: 0.5411765, b: 0.5411765, a: 1}
   hitVfx: {fileID: 5066053127664502388, guid: 0646b9acca8400d44b591da564235bfb, type: 3}
+  critHitVfx: {fileID: 0}
   attackAlert: {fileID: 506811264}
 --- !u!114 &2066557402
 MonoBehaviour:
