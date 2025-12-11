@@ -7,13 +7,15 @@ public class Chest : MonoBehaviour, IDamagable
 
     [Header("Open Chest Details")]
     [SerializeField] private Vector2 openChestVelocity;
-    public void TakeDamage(float damage, Transform damageDealer)
+    public bool TakeDamage(float damage, Transform damageDealer)
     {
         anim.SetBool("chestOpen", true);
         rb.linearVelocity = openChestVelocity;
 
         rb.angularVelocity = Random.Range(-200f, 200f);
-        
+
         //Drop items
+
+        return true;
     }
 }

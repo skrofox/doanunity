@@ -26,8 +26,10 @@ public class Entity_Combat : MonoBehaviour
             if (damagable == null)
                 continue; //bo qua muc tiu hien tai, di den mt tiep theo
 
-            damagable.TakeDamage(damage, transform);
-            vfx.CreateOnHitVFX(target.transform);
+            bool targetGotHit = damagable.TakeDamage(damage, transform);
+
+            if (targetGotHit)
+                vfx.CreateOnHitVFX(target.transform);
         }
     }
 

@@ -31,10 +31,17 @@ public class Entity_Health : MonoBehaviour, IDamagable
     }
 
 
-    public virtual void TakeDamage(float damage, Transform damageDealer)
+    public virtual bool TakeDamage(float damage, Transform damageDealer)
     {
         if (isDead)
-            return;
+            return false;
+
+        if (AttackEvaded())
+        {
+            Debug.Log($"{gameObject.name} has evaded the attack");
+            return false;
+        }
+
         //
         Vector2 knockback = CalculateKnockback(damage, damageDealer);
         float duration = CalculateDuration(damage);
@@ -43,6 +50,14 @@ public class Entity_Health : MonoBehaviour, IDamagable
         entityVfx?.PlayOnDamageVfx();
 
         ReduceHp(damage);
+
+
+        return true;
+    }
+
+    private bool AttackEvaded()
+    {
+        return Random.Range(0, 100) < stats.GetEvasion();
     }
 
     protected void ReduceHp(float damage)
