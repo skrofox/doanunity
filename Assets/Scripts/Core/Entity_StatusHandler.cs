@@ -5,21 +5,52 @@ public class Entity_StatusHandler : MonoBehaviour
 {
     private Entity entity;
     private Entity_VFX entityVfx;
-    private Entity_Stats stats;
+    private Entity_Stats entityStats;
+    private Entity_Health entityHealth;
     private ElementType currentEffect = ElementType.None;
 
     private void Awake()
     {
-        stats = GetComponent<Entity_Stats>();
+        entityHealth = GetComponent<Entity_Health>();
+        entityStats = GetComponent<Entity_Stats>();
         entity = GetComponent<Entity>();
         entityVfx = GetComponent<Entity_VFX>();
     }
+
+    public void ApplyBurnEffect(float duration, float fireDamage)
+    {
+        float fireResistance = entityStats.GetElementalResistance(ElementType.Fire);
+        float finalDamage = fireDamage * (1 - fireResistance);
+
+        StartCoroutine(BurnEffectCo(duration, finalDamage));
+    }
+
+    private IEnumerator BurnEffectCo(float duration, float totalDamage)
+    {
+        currentEffect = ElementType.Fire;
+        entityVfx.PlayOnStatusVfx(duration, ElementType.Fire);
+
+        int tickerPerSecond = 2;
+        int tickCount = Mathf.RoundToInt(tickerPerSecond * duration);
+
+        float damagePerTick = totalDamage / tickCount;
+        float tickInterval = 1f / tickerPerSecond;
+
+        for (int i = 0; i < tickCount; i++)
+        {
+            entityHealth.ReduceHp(damagePerTick);
+            yield return new WaitForSeconds(tickInterval);
+        }
+
+        currentEffect = ElementType.None;
+    }
+
     public void ApplyChilledEffect(float duration, float slowMultiplier)
     {
-        float iceRes = stats.GetElementalResistance(ElementType.Ice);
-        float reduceDuration = duration * (1- iceRes);
+        float iceRes = entityStats.GetElementalResistance(ElementType.Ice);
+        float finalDuration = duration * (1- iceRes);
 
-        StartCoroutine(ChilledEffectCo(reduceDuration, slowMultiplier));
+        StartCoroutine(ChilledEffectCo(finalDuration, slowMultiplier));
     }
 
     private IEnumerator ChilledEffectCo(float duration, float slowMultiplier)
