@@ -63054,7 +63054,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth:
-    baseValue: 100
+    baseValue: 1000
   major:
     strength:
       baseValue: 0
