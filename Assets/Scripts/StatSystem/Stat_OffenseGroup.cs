@@ -4,6 +4,8 @@ using UnityEngine;
 [Serializable]
 public class Stat_OffenseGroup
 {
+    public Stat attackSpeed;
+
     //sat thuong vat ly
     public Stat damage;
     public Stat critPower;
