@@ -541,7 +541,7 @@ Transform:
   m_GameObject: {fileID: 274070542}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.29, y: 0.21, z: 0}
+  m_LocalPosition: {x: 4.9, y: 5.34, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -635,6 +635,7 @@ MonoBehaviour:
   critHitVfx: {fileID: 4551562832365225752, guid: b4869d3112c7299419910817522df84c, type: 3}
   chillVfx: {r: 0.012111023, g: 0.6137273, b: 0.9169811, a: 1}
   burnVfx: {r: 1, g: 0, b: 0, a: 1}
+  electrifyVfx: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!114 &274070550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -673,7 +674,10 @@ MonoBehaviour:
     m_Bits: 256
   defaultDuration: 3
   chillSlowMultiplier: 0.2
-  CounterRecovery: 0
+  electrifyChargeBuildUp: 0.4
+  fireScale: 0.8
+  lightningScale: 3
+  CounterRecovery: 0.1
 --- !u!114 &274070552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -707,11 +711,11 @@ MonoBehaviour:
     armorReduction:
       baseValue: 0
     fireDamage:
-      baseValue: 10
-    iceDamage:
-      baseValue: 10
-    lightningDamage:
       baseValue: 0
+    iceDamage:
+      baseValue: 0
+    lightningDamage:
+      baseValue: 50
   defence:
     armor:
       baseValue: 0
@@ -735,6 +739,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c73c247765ebffd47af3e7ad111d16c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightningStrikeVfx: {fileID: 3768695431321200175, guid: cd4dec00f67c99d4da867e0e4b268f0f, type: 3}
+  currentCharge: 0
+  maximumCharge: 1
 --- !u!1 &344415102
 GameObject:
   m_ObjectHideFlags: 0
@@ -1233,7 +1240,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.31439, y: -1.1270385, z: 22.692577}
+  m_LocalPosition: {x: 1.8756096, y: 4.002962, z: 22.692577}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -62172,7 +62179,7 @@ Transform:
   m_GameObject: {fileID: 1454656417}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.31439, y: -1.1270385, z: 22.692577}
+  m_LocalPosition: {x: 1.8756096, y: 4.002962, z: 22.692577}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -63024,6 +63031,9 @@ MonoBehaviour:
     m_Bits: 128
   defaultDuration: 3
   chillSlowMultiplier: 0.2
+  electrifyChargeBuildUp: 0.4
+  fireScale: 0.8
+  lightningScale: 1
 --- !u!114 &2066557400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63062,6 +63072,7 @@ MonoBehaviour:
   critHitVfx: {fileID: 0}
   chillVfx: {r: 0, g: 1, b: 1, a: 1}
   burnVfx: {r: 1, g: 0, b: 0, a: 1}
+  electrifyVfx: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   attackAlert: {fileID: 506811264}
 --- !u!114 &2066557402
 MonoBehaviour:
@@ -63076,7 +63087,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth:
-    baseValue: 1000
+    baseValue: 10000
   major:
     strength:
       baseValue: 0
@@ -63124,6 +63135,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c73c247765ebffd47af3e7ad111d16c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightningStrikeVfx: {fileID: 3768695431321200175, guid: cd4dec00f67c99d4da867e0e4b268f0f, type: 3}
+  currentCharge: 0
+  maximumCharge: 1
 --- !u!1 &2067852099
 GameObject:
   m_ObjectHideFlags: 0
