@@ -7,7 +7,7 @@ public class Chest : MonoBehaviour, IDamagable
 
     [Header("Open Chest Details")]
     [SerializeField] private Vector2 openChestVelocity;
-    public bool TakeDamage(float damage,float elementalDamage, Transform damageDealer)
+    public bool TakeDamage(float damage,float elementalDamage, ElementType element,Transform damageDealer)
     {
         anim.SetBool("chestOpen", true);
         rb.linearVelocity = openChestVelocity;
