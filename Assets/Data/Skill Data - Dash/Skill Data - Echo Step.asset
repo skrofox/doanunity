@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 2
   skillType: 0
-  upgradeType: 0
+  upgradeData:
+    upgradeType: 1
+    cooldown: 2
   icon: {fileID: 354547431, guid: 3e1de1375bdbf734daf687cf0f48e4e5, type: 3}
   displayName: Echo Step
   description: err

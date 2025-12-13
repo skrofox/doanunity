@@ -316,7 +316,7 @@ MonoBehaviour:
   hitVfxColor: {r: 0.5411765, g: 0.5411765, b: 0.5411765, a: 1}
   hitVfx: {fileID: 5066053127664502388, guid: 0646b9acca8400d44b591da564235bfb, type: 3}
   critHitVfx: {fileID: 0}
-  chillVfx: {r: 0, g: 1, b: 1, a: 1}
+  chillVfx: {r: 0, g: 0.6117647, b: 1, a: 1}
   burnVfx: {r: 1, g: 0, b: 0, a: 1}
   electrifyVfx: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   attackAlert: {fileID: 1256704951495721905}

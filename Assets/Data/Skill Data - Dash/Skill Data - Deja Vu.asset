@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   skillType: 0
-  upgradeType: 0
+  upgradeData:
+    upgradeType: 2
+    cooldown: 0
   icon: {fileID: 961004536, guid: 3e1de1375bdbf734daf687cf0f48e4e5, type: 3}
   displayName: Deja Vu
   description: errrr

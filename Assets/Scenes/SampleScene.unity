@@ -790,7 +790,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   neededNodes:
   - {fileID: 881753831}
-  conflictNodes: []
+  conflictNodes:
+  - {fileID: 417242327}
+  - {fileID: 170164498}
   isUnlocked: 0
   isLooked: 0
   skillData: {fileID: 11400000, guid: 8fd38dd7dbe888c489f6b0dc5ab2440c, type: 2}
@@ -1245,10 +1247,10 @@ GameObject:
   - component: {fileID: 274070546}
   - component: {fileID: 274070551}
   - component: {fileID: 274070550}
-  - component: {fileID: 274070549}
   - component: {fileID: 274070554}
   - component: {fileID: 274070553}
   - component: {fileID: 274070555}
+  - component: {fileID: 274070556}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -1375,26 +1377,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.32795614}
   m_Size: {x: 0.77, y: 1.9431227}
   m_Direction: 0
---- !u!114 &274070549
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 274070542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4366f218a8ed21242858acf6e3623897, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onDamageMaterial: {fileID: 2100000, guid: cbd668e678f0a1c4e9d44f3e35eba7d9, type: 2}
-  onDamageVFXDuration: 0.13
-  hitVfxColor: {r: 1, g: 0.9909024, b: 0.2999999, a: 1}
-  hitVfx: {fileID: 5066053127664502388, guid: 0646b9acca8400d44b591da564235bfb, type: 3}
-  critHitVfx: {fileID: 4551562832365225752, guid: b4869d3112c7299419910817522df84c, type: 3}
-  chillVfx: {r: 0.012111023, g: 0.6137273, b: 0.9169811, a: 1}
-  burnVfx: {r: 1, g: 0, b: 0, a: 1}
-  electrifyVfx: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!114 &274070550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1540,6 +1522,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28cad40475ec8404fa78e4535bc44291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &274070556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274070542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c9f3cec6b8031e45b647d1a3f589153, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onDamageMaterial: {fileID: 2100000, guid: cbd668e678f0a1c4e9d44f3e35eba7d9, type: 2}
+  onDamageVFXDuration: 0.13
+  hitVfxColor: {r: 1, g: 1, b: 1, a: 1}
+  hitVfx: {fileID: 5066053127664502388, guid: 0646b9acca8400d44b591da564235bfb, type: 3}
+  critHitVfx: {fileID: 4551562832365225752, guid: b4869d3112c7299419910817522df84c, type: 3}
+  chillVfx: {r: 0, g: 0.61066246, b: 1, a: 1}
+  burnVfx: {r: 1, g: 0, b: 0, a: 1}
+  electrifyVfx: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  imageEchoInterval: 0.05
+  imageEchoPrefab: {fileID: 8675310667917524422, guid: 563c2a6d61741d54a89635226fa4ad90, type: 3}
 --- !u!1 &296587836
 GameObject:
   m_ObjectHideFlags: 0
@@ -2108,7 +2112,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   neededNodes:
   - {fileID: 170164498}
-  conflictNodes: []
+  conflictNodes:
+  - {fileID: 881753831}
+  - {fileID: 208164623}
   isUnlocked: 0
   isLooked: 0
   skillData: {fileID: 11400000, guid: 82b45167d90d7b6449e354be1b458401, type: 2}
