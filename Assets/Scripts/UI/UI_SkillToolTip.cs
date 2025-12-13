@@ -17,7 +17,7 @@ public class UI_SkillToolTip : UI_ToolTip
     [SerializeField] private string notMetConditionHex;
     [SerializeField] private string importantInfoHex;
     [SerializeField] private Color exampleColor;
-    [SerializeField] private string lockedSkillText = "Kỹ năng này đã bị khóa do bạn đã chọn kĩ năng khác ngon nghẻ hơn.";
+    [SerializeField] private string lockedSkillText = "Bạn không thể học 2 kĩ năng có thuộc tính riêng biệt.";
 
     private Coroutine textEffectCo;
 
@@ -25,7 +25,7 @@ public class UI_SkillToolTip : UI_ToolTip
     {
         base.Awake();
         ui = GetComponentInParent<UI>();
-        skillTree = ui.GetComponentInChildren<UI_SkillTree>();
+        skillTree = ui.GetComponentInChildren<UI_SkillTree>(true);
     }
 
     public override void ShowToolTip(bool show, RectTransform targetRect)
@@ -74,11 +74,11 @@ public class UI_SkillToolTip : UI_ToolTip
     {
         StringBuilder sb = new StringBuilder();
 
-        sb.AppendLine("Requirements:");
+        sb.AppendLine("Cần thiết:");
 
         string costColor = skillTree.EnoughSkillPoints(skillCost) ? metConditionHex : notMetConditionHex;
 
-        sb.AppendLine($"<color={costColor}>- {skillCost} skill point(s) </color>");
+        sb.AppendLine($"<color={costColor}>- {skillCost} điểm kĩ năng(s) </color>");
 
         foreach (var node in neededNodes)
         {
@@ -90,7 +90,7 @@ public class UI_SkillToolTip : UI_ToolTip
             return sb.ToString();
 
         sb.AppendLine();
-        sb.AppendLine($"<color={importantInfoHex}>Khóa: </color>");
+        sb.AppendLine($"<color={importantInfoHex}>Không học được: </color>");
 
         foreach (var node in conflictNodes)
         {
@@ -99,11 +99,6 @@ public class UI_SkillToolTip : UI_ToolTip
 
         return sb.ToString();
 
-    }
-
-    private string GetColoredText(string color, string text)
-    {
-        return $"<color={color}> {text}</color>";
     }
 
 }

@@ -760,6 +760,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillToolTip: {fileID: 0}
+  skillTree: {fileID: 0}
 --- !u!1 &271775033
 GameObject:
   m_ObjectHideFlags: 0
@@ -63078,7 +63079,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1251737808
 RectTransform:
   m_ObjectHideFlags: 0
@@ -63092,10 +63093,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1450176702}
-  - {fileID: 2132421989}
-  - {fileID: 617887373}
   - {fileID: 943329447}
   - {fileID: 1651546974}
+  - {fileID: 2132421989}
+  - {fileID: 617887373}
   m_Father: {fileID: 265669412}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
