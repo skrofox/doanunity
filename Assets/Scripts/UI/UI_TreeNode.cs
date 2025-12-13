@@ -53,9 +53,7 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         LockConflictNodes();
         connectHandler.UnlockedConnectionImage(true);
 
-        //Find player skill manager
-        //unlock skill on skill manager
-        //skill manager unlock skill from skill data skill type
+        skillTree.skillManager.GetSkillByType(skillData.skillType).SetSkillUpgrade(skillData.upgradeType);
     }
 
     private bool CanBeUnlock()
@@ -111,16 +109,20 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         ui.skillToolTip.ShowToolTip(true, rect, this);
 
-        if (!isUnlocked || !isLooked)
-            ToggleNodeHighlight(true);
+        if (isUnlocked || isLooked)
+            return;
+
+        ToggleNodeHighlight(true);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         ui.skillToolTip.ShowToolTip(false, rect);
 
-        if (!isUnlocked || !isLooked)
-            ToggleNodeHighlight(false);
+        if (isUnlocked || isLooked)
+            return;
+
+        ToggleNodeHighlight(false);
     }
 
     private void ToggleNodeHighlight(bool highlight)
