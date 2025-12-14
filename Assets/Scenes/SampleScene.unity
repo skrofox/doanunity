@@ -64299,6 +64299,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1155028618}
   - component: {fileID: 1155028619}
+  - component: {fileID: 1155028620}
   m_Layer: 7
   m_Name: SkillHolder
   m_TagString: Untagged
@@ -64336,6 +64337,23 @@ MonoBehaviour:
   skillType: 0
   upgradeType: 0
   cooldown: 3
+--- !u!114 &1155028620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155028617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d583488e978b2ac44ac74d618043071d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillType: 0
+  upgradeType: 0
+  cooldown: 1
+  shardPrefab: {fileID: 1129301653233452568, guid: b8007a4ea013b3345b8783132bdc357b, type: 3}
+  detonateTime: 2
 --- !u!1 &1178330334
 GameObject:
   m_ObjectHideFlags: 0
@@ -67155,10 +67173,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2128730920}
-  - {fileID: 170164500}
-  - {fileID: 881753833}
   - {fileID: 417242325}
   - {fileID: 208164624}
+  - {fileID: 170164500}
+  - {fileID: 881753833}
   m_Father: {fileID: 1251737808}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
