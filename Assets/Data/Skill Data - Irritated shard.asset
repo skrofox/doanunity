@@ -18,6 +18,16 @@ MonoBehaviour:
   upgradeData:
     upgradeType: 7
     cooldown: 5
+    damageScale:
+      physical: 0
+      elemental: 2
+      chillDuration: 3
+      chillSlowMultiplier: 0.3
+      burnDuration: 3
+      burnDamageScale: 1.5
+      shockDuration: 3
+      shockDamageScale: 1.5
+      shockCharge: 0.4
   icon: {fileID: 2055148042, guid: 3e1de1375bdbf734daf687cf0f48e4e5, type: 3}
   displayName: Irritated Shard
   description: "Bay v\u1EC1 ph\xEDa qu\xE1i v\u1EADt v\xE0 ph\xE1t n\u1ED5"

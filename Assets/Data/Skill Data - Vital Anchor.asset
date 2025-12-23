@@ -18,7 +18,17 @@ MonoBehaviour:
   upgradeData:
     upgradeType: 10
     cooldown: 5
-  icon: {fileID: 0}
+    damageScale:
+      physical: 1
+      elemental: 1
+      chillDuration: 3
+      chillSlowMultiplier: 0.2
+      burnDuration: 3
+      burnDamageScale: 1
+      shockDuration: 3
+      shockDamageScale: 1
+      shockCharge: 0.4
+  icon: {fileID: -490926987, guid: 3e1de1375bdbf734daf687cf0f48e4e5, type: 3}
   displayName: Vital Anchor
   description: "Quay ng\u01B0\u1EE3c th\u1EDDi gian, h\u1ED3i l\u1EA1i m\xE1u \u0111\xE3
     m\u1EA5t c\u1EE7a b\u1EA1n th\xE2n v\xE0o th\u1EDDi \u0111i\u1EC3m s\u1EED d\u1EE5ng

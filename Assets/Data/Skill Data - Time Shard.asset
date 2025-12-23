@@ -18,6 +18,16 @@ MonoBehaviour:
   upgradeData:
     upgradeType: 6
     cooldown: 1
+    damageScale:
+      physical: 0
+      elemental: 1.5
+      chillDuration: 3
+      chillSlowMultiplier: 0.2
+      burnDuration: 3
+      burnDamageScale: 1
+      shockDuration: 3
+      shockDamageScale: 1
+      shockCharge: 0.4
   icon: {fileID: 2075199830, guid: 3e1de1375bdbf734daf687cf0f48e4e5, type: 3}
   displayName: Time Shard
   description: errrr
