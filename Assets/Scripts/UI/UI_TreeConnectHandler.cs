@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
@@ -25,22 +26,20 @@ public class UI_TreeConnectHandler : MonoBehaviour
     {
         if (connectionImage != null)
             originalColor = connectionImage.color;
-    
+
     }
 
-    private void OnValidate()
+    public UI_TreeNode[] GetChildNodes()
     {
-        if (connectionDetails.Length <= 0)
-            return;
+        List<UI_TreeNode> childrenToReturn = new List<UI_TreeNode>();
 
-        if (connectionDetails.Length != connections.Length)
+        foreach (var node in connectionDetails)
         {
-            Debug.Log("So luong chi tiet phai bang SL ket noi - " + gameObject.name);
-            return;
+            if (node.childNode != null)
+                childrenToReturn.Add(node.childNode.GetComponent<UI_TreeNode>());
         }
 
-        UpdateConnections();
-        //UpdateAllConnections();
+        return childrenToReturn.ToArray();
     }
 
     public void UpdateConnections()
@@ -86,4 +85,19 @@ public class UI_TreeConnectHandler : MonoBehaviour
     public void SetConnectionImage(Image image) => connectionImage = image;
 
     public void SetPosition(Vector2 position) => rect.anchoredPosition = position;
+
+    private void OnValidate()
+    {
+        if (connectionDetails.Length <= 0)
+            return;
+
+        if (connectionDetails.Length != connections.Length)
+        {
+            Debug.Log("So luong chi tiet phai bang SL ket noi - " + gameObject.name);
+            return;
+        }
+
+        UpdateConnections();
+        //UpdateAllConnections();
+    }
 }

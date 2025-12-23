@@ -17,6 +17,7 @@ public class Player_SkillManager : MonoBehaviour
         switch (type)
         {
             case SkillType.Dash: return dash;
+            case SkillType.TimeShard: return shard;
 
             default:
                 Debug.Log($"Skill type {type} do not support");

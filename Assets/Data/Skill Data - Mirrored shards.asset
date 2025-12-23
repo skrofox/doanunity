@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c1da3b09957e3a3439b11d86990ca4b3, type: 3}
-  m_Name: Skill Data - Quick dash
+  m_Name: Skill Data - Mirrored shards
   m_EditorClassIdentifier: 
-  cost: 0
-  unlockedByDefault: 1
-  skillType: 0
+  cost: 3
+  unlockedByDefault: 0
+  skillType: 2
   upgradeData:
-    upgradeType: 0
-    cooldown: 3
-  icon: {fileID: 1375801471, guid: 3e1de1375bdbf734daf687cf0f48e4e5, type: 3}
-  displayName: Quick Dash
-  description: err
+    upgradeType: 8
+    cooldown: 5
+  icon: {fileID: 1607934951, guid: 3e1de1375bdbf734daf687cf0f48e4e5, type: 3}
+  displayName: Mirrored Shards
+  description: "T\u1EA1o ra th\xEAm 3 m\u1EA3nh v\u1EE1"

@@ -94,6 +94,8 @@ public class UI_SkillToolTip : UI_ToolTip
 
         foreach (var node in conflictNodes)
         {
+            if (node == null) continue;
+
             sb.AppendLine($"<color={importantInfoHex}>- {node.skillData.displayName}.</color>");
         }
 

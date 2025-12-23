@@ -31,6 +31,13 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         connectHandler = GetComponent<UI_TreeConnectHandler>();
 
         UpdateIconColor(GetColorByHex(lockedColorHex));
+
+    }
+
+    private void Start()
+    {
+        if (skillData.unlockedByDefault)
+            UnLock();
     }
 
     public void Refund()
@@ -84,6 +91,17 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         foreach (var node in conflictNodes)
         {
             node.isLooked = true;
+            node.LockChildNodes();
+        }
+    }
+
+    public void LockChildNodes()
+    {
+        isLooked = true;
+
+        foreach (var node in connectHandler.GetChildNodes())
+        {
+            node.LockChildNodes();
         }
     }
 
