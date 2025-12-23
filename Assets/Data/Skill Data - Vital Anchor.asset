@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1da3b09957e3a3439b11d86990ca4b3, type: 3}
+  m_Name: Skill Data - Vital Anchor
+  m_EditorClassIdentifier: 
+  cost: 3
+  unlockedByDefault: 0
+  skillType: 2
+  upgradeData:
+    upgradeType: 10
+    cooldown: 5
+  icon: {fileID: 0}
+  displayName: Vital Anchor
+  description: "Quay ng\u01B0\u1EE3c th\u1EDDi gian, h\u1ED3i l\u1EA1i m\xE1u \u0111\xE3
+    m\u1EA5t c\u1EE7a b\u1EA1n th\xE2n v\xE0o th\u1EDDi \u0111i\u1EC3m s\u1EED d\u1EE5ng
+    pha l\xEA."
