@@ -1665,7 +1665,7 @@ MonoBehaviour:
   defaultStatSetup: {fileID: 11400000, guid: 89224bc63c06c014488854a1eca8e579, type: 2}
   resources:
     maxHealth:
-      baseValue: 100
+      baseValue: 1000
       modifiers: []
     healthRegen:
       baseValue: 0
@@ -1693,7 +1693,7 @@ MonoBehaviour:
       baseValue: 0
       modifiers: []
     lightningDamage:
-      baseValue: 0
+      baseValue: 100
       modifiers: []
   defence:
     armor:
@@ -2745,10 +2745,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2110819163}
+  - {fileID: 361502808}
+  - {fileID: 1519770374}
   - {fileID: 1435338349}
   - {fileID: 2031520601}
-  - {fileID: 1519770374}
-  - {fileID: 361502808}
   m_Father: {fileID: 1251737808}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -69070,6 +69070,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8717044829651959069, guid: c78381f9fac954e4bb857a941edf8f35, type: 3}
+      propertyPath: offense.damage.baseValue
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8717044829651959069, guid: c78381f9fac954e4bb857a941edf8f35, type: 3}
+      propertyPath: resources.maxHealth.baseValue
+      value: 1000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -69510,10 +69518,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2128730920}
+  - {fileID: 417242325}
+  - {fileID: 208164624}
   - {fileID: 170164500}
   - {fileID: 881753833}
-  - {fileID: 208164624}
-  - {fileID: 417242325}
   m_Father: {fileID: 1251737808}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
