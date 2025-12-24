@@ -10,17 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c1da3b09957e3a3439b11d86990ca4b3, type: 3}
-  m_Name: Skill Data - Time Echo
+  m_Name: Skill Data - Endless Possiblity
   m_EditorClassIdentifier: 
-  icon: {fileID: 759869586, guid: 3e1de1375bdbf734daf687cf0f48e4e5, type: 3}
-  displayName: Time Echo
-  description: "errrrrrrrrrrrrrr skrtttt pow pow...\nTi\u1EBFng v\u1ECDng \u0111\u1EBFn
-    t\u1EEB h\u01B0 v\xF4, th\u1EADt \u0111\xE1ng s\u1EE3..."
-  cost: 1
+  icon: {fileID: -361452937, guid: 3e1de1375bdbf734daf687cf0f48e4e5, type: 3}
+  displayName: Endless Possiblity
+  description: "Ph\xE2n th\xE2n."
+  cost: 4
   unlockedByDefault: 0
   skillType: 1
   upgradeData:
-    upgradeType: 15
+    upgradeType: 18
     cooldown: 0
     damageScaleData:
       physical: 1

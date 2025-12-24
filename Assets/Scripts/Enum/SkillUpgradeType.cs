@@ -28,7 +28,7 @@ public enum SkillUpgradeType
     TimeEcho, //Create clone player, take damage from enemies
     TimeEcho_SingleAttack, //time echo can perform a single attack
     TimeEcho_MultiAttack, //time echo can perform N attacks
-    TimeEcho_ChanceToMultiply, //time echo has a chance to create another time echo when attacks
+    TimeEcho_ChanceToDuplicate, //time echo has a chance to create another time echo when attacks
 
     TimeEcho_HealWips, //sdsadsdasdasdadas
 

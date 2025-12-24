@@ -117,7 +117,7 @@ MonoBehaviour:
   WhatIsEnemy:
     serializedVersion: 2
     m_Bits: 256
-  targetCheck: {fileID: 2299550171314476509}
+  targetCheck: {fileID: 3000959498754343904}
   checkRadius: 1
   onDeathVfx: {fileID: 3876447354312603829, guid: 43bb04761573ae34f9e0840c29cc7123, type: 3}
   whatIsGround:
@@ -186,6 +186,7 @@ GameObject:
   - component: {fileID: 217274366515696727}
   - component: {fileID: 1365089393205848897}
   - component: {fileID: 927913374217741419}
+  - component: {fileID: 7646655819679225413}
   m_Layer: 0
   m_Name: Animator
   m_TagString: Untagged
@@ -285,3 +286,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7646655819679225413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6713376758801547042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8be4d31a3fa7324c939be0617de34b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
