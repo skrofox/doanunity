@@ -172,6 +172,15 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""TimeEcho"",
+                    ""type"": ""Button"",
+                    ""id"": ""c2206ddd-ac52-4ed4-bf00-beb7ab089d13"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -317,6 +326,17 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
                     ""action"": ""Mouse"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ee3e5838-de3c-4add-a5cf-41acb9b53d53"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard & Mouse"",
+                    ""action"": ""TimeEcho"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -351,6 +371,7 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
         m_Player_Spell = m_Player.FindAction("Spell", throwIfNotFound: true);
         m_Player_RangeAttack = m_Player.FindAction("RangeAttack", throwIfNotFound: true);
         m_Player_Mouse = m_Player.FindAction("Mouse", throwIfNotFound: true);
+        m_Player_TimeEcho = m_Player.FindAction("TimeEcho", throwIfNotFound: true);
     }
 
     ~@PlayerInputSet()
@@ -440,6 +461,7 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Spell;
     private readonly InputAction m_Player_RangeAttack;
     private readonly InputAction m_Player_Mouse;
+    private readonly InputAction m_Player_TimeEcho;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -487,6 +509,10 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Mouse".
         /// </summary>
         public InputAction @Mouse => m_Wrapper.m_Player_Mouse;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/TimeEcho".
+        /// </summary>
+        public InputAction @TimeEcho => m_Wrapper.m_Player_TimeEcho;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -540,6 +566,9 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
             @Mouse.started += instance.OnMouse;
             @Mouse.performed += instance.OnMouse;
             @Mouse.canceled += instance.OnMouse;
+            @TimeEcho.started += instance.OnTimeEcho;
+            @TimeEcho.performed += instance.OnTimeEcho;
+            @TimeEcho.canceled += instance.OnTimeEcho;
         }
 
         /// <summary>
@@ -578,6 +607,9 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
             @Mouse.started -= instance.OnMouse;
             @Mouse.performed -= instance.OnMouse;
             @Mouse.canceled -= instance.OnMouse;
+            @TimeEcho.started -= instance.OnTimeEcho;
+            @TimeEcho.performed -= instance.OnTimeEcho;
+            @TimeEcho.canceled -= instance.OnTimeEcho;
         }
 
         /// <summary>
@@ -694,5 +726,12 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnMouse(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "TimeEcho" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnTimeEcho(InputAction.CallbackContext context);
     }
 }
