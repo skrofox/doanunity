@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2584535143485018720}
   - component: {fileID: 5747952989417966252}
   m_Layer: 0
-  m_Name: Skill_ObjectShard
+  m_Name: SkillObject_Shard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84dc6a78672c585458a64d25cfa7ed74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onHitVfx: {fileID: 5066053127664502388, guid: 0646b9acca8400d44b591da564235bfb, type: 3}
   WhatIsEnemy:
     serializedVersion: 2
     m_Bits: 256

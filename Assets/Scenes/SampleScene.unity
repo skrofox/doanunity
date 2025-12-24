@@ -65783,10 +65783,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillType: 3
-  upgradeType: 0
+  upgradeType: 11
   cooldown: 0
-  throwPower: 4
-  swordGravity: 3.5
+  swordPrefab: {fileID: 5271362002282636581, guid: 93daaad01adb8424c8a3134a606e8002, type: 3}
+  throwPower: 2
   predictionDot: {fileID: 6075223541944836785, guid: aaac8a3a8d8b2eb44bb5f83cdcd2fc9f, type: 3}
   numberOfDots: 20
   spaceBetweenDots: 0.05
