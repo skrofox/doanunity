@@ -12,15 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1da3b09957e3a3439b11d86990ca4b3, type: 3}
   m_Name: Skill Data - Catch This
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
-  displayName: 
-  description: 
-  cost: 0
+  icon: {fileID: -2091277707, guid: 3e1de1375bdbf734daf687cf0f48e4e5, type: 3}
+  displayName: Catch This!
+  description: "N\xE9m ra c\xE2y ki\u1EBFm c\u1EE7a b\u1EA1n, g\xE2y s\xE1t th\u01B0\u01A1ng
+    l\xEAn k\u1EBB th\xF9."
+  cost: 1
   unlockedByDefault: 0
-  skillType: 0
+  skillType: 3
   upgradeData:
-    upgradeType: 0
-    cooldown: 0
+    upgradeType: 11
+    cooldown: 4
     damageScaleData:
       physical: 1
       elemental: 1

@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c1da3b09957e3a3439b11d86990ca4b3, type: 3}
-  m_Name: Skill Data - Quick dash
+  m_Name: Skill Data - The Xenablade
   m_EditorClassIdentifier: 
-  icon: {fileID: 1375801471, guid: 3e1de1375bdbf734daf687cf0f48e4e5, type: 3}
-  displayName: Quick Dash
-  description: err
-  cost: 0
+  icon: {fileID: -176535397, guid: 3e1de1375bdbf734daf687cf0f48e4e5, type: 3}
+  displayName: The Xenablade
+  description: "H\u01A1i th\u1EDF c\u1EE7a \u0111\xE1, m\xFAa ki\u1EBFm si\xEAu c\u1EA5p."
+  cost: 4
   unlockedByDefault: 0
-  skillType: 0
+  skillType: 3
   upgradeData:
-    upgradeType: 1
-    cooldown: 3
+    upgradeType: 14
+    cooldown: 7
     damageScaleData:
       physical: 1
       elemental: 1
