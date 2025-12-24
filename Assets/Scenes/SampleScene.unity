@@ -1509,12 +1509,12 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1155028618}
   - {fileID: 1485980086}
   - {fileID: 622737139}
   - {fileID: 1178330335}
   - {fileID: 2045349845}
   - {fileID: 1448721526}
-  - {fileID: 1155028618}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &274070545
@@ -1629,11 +1629,6 @@ MonoBehaviour:
   WhatIsTarget:
     serializedVersion: 2
     m_Bits: 256
-  defaultDuration: 3
-  chillSlowMultiplier: 0.2
-  electrifyChargeBuildUp: 0.4
-  fireScale: 0.8
-  lightningScale: 3
   CounterRecovery: 0.1
 --- !u!114 &274070553
 MonoBehaviour:
@@ -1755,7 +1750,7 @@ MonoBehaviour:
   critHitVfx: {fileID: 4551562832365225752, guid: b4869d3112c7299419910817522df84c, type: 3}
   chillVfx: {r: 0, g: 0.61066246, b: 1, a: 1}
   burnVfx: {r: 1, g: 0, b: 0, a: 1}
-  electrifyVfx: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  shockVfx: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   imageEchoInterval: 0.05
   imageEchoPrefab: {fileID: 8675310667917524422, guid: 563c2a6d61741d54a89635226fa4ad90, type: 3}
 --- !u!1 &296587836
@@ -2745,8 +2740,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2110819163}
-  - {fileID: 361502808}
   - {fileID: 1519770374}
+  - {fileID: 361502808}
   - {fileID: 1435338349}
   - {fileID: 2031520601}
   m_Father: {fileID: 1251737808}
@@ -65349,7 +65344,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1036942147
 RectTransform:
   m_ObjectHideFlags: 0
@@ -65714,6 +65709,7 @@ GameObject:
   - component: {fileID: 1155028618}
   - component: {fileID: 1155028619}
   - component: {fileID: 1155028620}
+  - component: {fileID: 1155028621}
   m_Layer: 7
   m_Name: SkillHolder
   m_TagString: Untagged
@@ -65764,7 +65760,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillType: 2
-  upgradeType: 6
+  upgradeType: 0
   cooldown: 1
   shardPrefab: {fileID: 1129301653233452568, guid: b8007a4ea013b3345b8783132bdc357b, type: 3}
   detonateTime: 2
@@ -65774,6 +65770,26 @@ MonoBehaviour:
   isReCharging: 0
   shardExistDuration: 10
   saveHealthPercent: 0
+--- !u!114 &1155028621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155028617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3a5908cc3f710946adae252e4f174cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillType: 3
+  upgradeType: 0
+  cooldown: 0
+  throwPower: 4
+  swordGravity: 3.5
+  predictionDot: {fileID: 6075223541944836785, guid: aaac8a3a8d8b2eb44bb5f83cdcd2fc9f, type: 3}
+  numberOfDots: 20
+  spaceBetweenDots: 0.05
 --- !u!1 &1178330334
 GameObject:
   m_ObjectHideFlags: 0
@@ -66000,7 +66016,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1251737808
 RectTransform:
   m_ObjectHideFlags: 0
@@ -67364,7 +67380,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1485980085}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e085c87aa99697a44847bd841a35fbaf, type: 3}
+  m_Script: {fileID: 11500000, guid: d5dc67ac448794a4ab1b873a35c3f111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1490713759
@@ -68995,10 +69011,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1450176702}
-  - {fileID: 2132421989}
-  - {fileID: 617887373}
   - {fileID: 943329447}
   - {fileID: 1651546974}
+  - {fileID: 2132421989}
+  - {fileID: 617887373}
   m_Father: {fileID: 1251737808}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -69060,15 +69076,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 584038273286126053, guid: c78381f9fac954e4bb857a941edf8f35, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5146575293874134210, guid: c78381f9fac954e4bb857a941edf8f35, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5146575293874134210, guid: c78381f9fac954e4bb857a941edf8f35, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8717044829651959069, guid: c78381f9fac954e4bb857a941edf8f35, type: 3}
       propertyPath: offense.damage.baseValue
@@ -69518,8 +69534,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2128730920}
-  - {fileID: 417242325}
   - {fileID: 208164624}
+  - {fileID: 417242325}
   - {fileID: 170164500}
   - {fileID: 881753833}
   m_Father: {fileID: 1251737808}
