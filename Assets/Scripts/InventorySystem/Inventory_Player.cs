@@ -3,13 +3,13 @@ using UnityEngine;
 
 public class Inventory_Player : Inventory_Base
 {
-    private Entity_Stats playerStats;
+    private Player player;
     public List<Inventory_EquipmentSlot> equidList;
 
     protected override void Awake()
     {
         base.Awake();
-        playerStats = GetComponent<Entity_Stats>();
+        player = GetComponent<Player>();
     }
 
     public void TryEquipItem(Inventory_Item item)
@@ -37,9 +37,12 @@ public class Inventory_Player : Inventory_Base
 
     private void EquipItem(Inventory_Item itemToEquip, Inventory_EquipmentSlot slot)
     {
-        slot.equipedItem = itemToEquip;
-        slot.equipedItem.AddModifiers(playerStats);
+        float savedHealthPercent = player.health.GetHealthPercent();
 
+        slot.equipedItem = itemToEquip;
+        slot.equipedItem.AddModifiers(player.stats);
+
+        player.health.SetHealthToPercent(savedHealthPercent);
         RemoveItem(itemToEquip);
     }
 
@@ -51,16 +54,15 @@ public class Inventory_Player : Inventory_Base
             return;
         }
 
-        foreach (var slot in equidList)
-        {
-            if (slot.equipedItem == itemToUnEquip)
-            {
-                slot.equipedItem = null;
-                break;
-            }
-        }
+        float savedHealthPercent = player.health.GetHealthPercent();
+        var slotToUnEquip = equidList.Find(slot => slot.equipedItem == itemToUnEquip);
 
-        itemToUnEquip.RemoveModifiers(playerStats);
+        if (slotToUnEquip != null)
+            slotToUnEquip.equipedItem = null;
+
+        itemToUnEquip.RemoveModifiers(player.stats);
+
+        player.health.SetHealthToPercent(savedHealthPercent);
         AddItem(itemToUnEquip);
     }
 }
