@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ca2b2fec22f3934db70cf0d41f09514, type: 3}
+  m_Name: Item effect data - Restore 10% Of Max Health
+  m_EditorClassIdentifier: 
+  effectDescription: "H\u1ED3i l\u1EA1i 10% m\xE1u"
+  healPercent: 0.1
