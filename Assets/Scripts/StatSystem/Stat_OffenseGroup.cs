@@ -9,7 +9,7 @@ public class Stat_OffenseGroup
     //sat thuong vat ly
     public Stat damage;
     public Stat critPower;
-    public Stat critChange;
+    public Stat critChance;
     public Stat armorReduction;
 
     //elemental damage // sat thuong nguyen to

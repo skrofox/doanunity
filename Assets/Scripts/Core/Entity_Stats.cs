@@ -85,42 +85,38 @@ public class Entity_Stats : MonoBehaviour
 
     public float GetPhysicalDamage(out bool isCrit, float scaleFactor = 1)
     {
-        float baseDamage = offense.damage.GetValue();
-        float bonusDamage = major.strength.GetValue();
+        float baseDamage = GetBaseDamage();
 
-        float totalBaseDamage = baseDamage + bonusDamage;
-
-        float baseCritChance = offense.critChange.GetValue();
-        float bonusCritChance = major.agility.GetValue() * 0.3f; //Bonus crit chance from Agility: +0.3% per AGI
-        float critChance = baseCritChance + bonusCritChance;
-
-        float baseCritPower = offense.critPower.GetValue();
-        float bonusCritPower = major.strength.GetValue() * 0.5f; //Bonus crit chance from Strength: +0.5% per STR
-        float critPower = (baseCritPower + bonusCritPower) / 100;//Total crit power as multiplier (e.g 150 / 100 = 1.5f - multiplier);
+        float critChance = GetCritChance();
+        float critPower = GetCritPower() / 100;//Total crit power as multiplier (e.g 150 / 100 = 1.5f - multiplier);
 
         isCrit = Random.Range(0, 100) < critChance;
-        float finalDamage = isCrit ? totalBaseDamage * critPower : totalBaseDamage;
+        float finalDamage = isCrit ? baseDamage * critPower : baseDamage;
 
         return finalDamage * scaleFactor;
     }
 
+    public float GetBaseDamage() => offense.damage.GetValue() + major.strength.GetValue(); //bonus damage from strengh: +1 per STR
+    public float GetCritChance() => offense.critChance.GetValue() + (major.agility.GetValue() * .3f); //Bonus crit chance from Agility: +0.3% per AGI
+    public float GetCritPower() => offense.critPower.GetValue() + (major.strength.GetValue() * .5f); //Bonus crit chance from Strength: +0.5% per STR
+
     public float GetArmorMitigation(float armorReduction)
     {
-        float baseArmor = defence.armor.GetValue();
-        float bonusArmor = major.vitality.GetValue(); //Bonus armor from Vitality: +1 per VIT
-        float totalArmor = baseArmor + bonusArmor;
+        float totalArmor = GetBaseArmor();
 
         //float reductionMultiplier = Mathf.Clamp(1 - armorReduction, 0, 1);
         float reductionMultiplier = Mathf.Clamp01(1 - armorReduction);
         float effectiveArmor = totalArmor * reductionMultiplier;
 
         float mitigation = effectiveArmor / (effectiveArmor + 100);
-        float mitigationCap = .50f; //max mitigation will be capped at 50%
+        float mitigationCap = .60f; //max mitigation will be capped at 60%
 
         float finalMitigation = Mathf.Clamp(mitigation, 0, mitigationCap);
 
         return finalMitigation;
     }
+
+    public float GetBaseArmor() => defence.armor.GetValue() + major.vitality.GetValue(); //Bonus armor from Vitality: +1 per VIT
 
     public float GetArmorReduction()
     {
@@ -137,7 +133,7 @@ public class Entity_Stats : MonoBehaviour
 
         float totalEvasion = baseEvasion + bonusEvasion;
 
-        float evasionCap = 30f; //gioi han evasion la 30%
+        float evasionCap = 40f; //gioi han evasion la 40%
 
         float finalEvasion = Mathf.Clamp(totalEvasion, 0, evasionCap);
 
@@ -167,7 +163,7 @@ public class Entity_Stats : MonoBehaviour
 
             case StatType.AttackSpeed: return offense.attackSpeed;
             case StatType.Damage: return offense.damage;
-            case StatType.CritChance: return offense.critChange;
+            case StatType.CritChance: return offense.critChance;
             case StatType.CritPower: return offense.critPower;
             case StatType.ArmorReduction: return offense.armorReduction;
 
@@ -209,7 +205,7 @@ public class Entity_Stats : MonoBehaviour
         
         offense.attackSpeed.SetBaseValue(defaultStatSetup.attackSpeed);
         offense.damage.SetBaseValue(defaultStatSetup.damage);
-        offense.critChange.SetBaseValue(defaultStatSetup.critChance);
+        offense.critChance.SetBaseValue(defaultStatSetup.critChance);
         offense.critPower.SetBaseValue(defaultStatSetup.critPower);
         offense.armorReduction.SetBaseValue(defaultStatSetup.armorReduction);
         

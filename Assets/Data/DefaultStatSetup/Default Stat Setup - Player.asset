@@ -15,7 +15,7 @@ MonoBehaviour:
   maxHealth: 100
   healthRegen: 0
   attackSpeed: 1
-  damage: 10
+  damage: 5
   critChance: 0
   critPower: 0
   armorReduction: 0
