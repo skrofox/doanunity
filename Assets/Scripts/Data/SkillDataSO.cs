@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "RPG Setup/Skill Data", fileName = "Skill Data - ")]
-public class Skill_DataSO : ScriptableObject
+public class SkillDataSO : ScriptableObject
 {
     [Header("Skill Description")]
     public Sprite icon;

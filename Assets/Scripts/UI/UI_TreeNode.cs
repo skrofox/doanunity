@@ -16,7 +16,7 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public bool isLooked;
 
     [Header("Skill Details")]
-    public Skill_DataSO skillData;
+    public SkillDataSO skillData;
     [SerializeField] private string skillName;
     [SerializeField] private Image skillIcon;
     [SerializeField] private int skillCost;

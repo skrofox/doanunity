@@ -10,24 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c1da3b09957e3a3439b11d86990ca4b3, type: 3}
-  m_Name: Skill Data - Time Warp
+  m_Name: Skill Data - Shard Of Time
   m_EditorClassIdentifier: 
-  icon: {fileID: -190628337, guid: 3e1de1375bdbf734daf687cf0f48e4e5, type: 3}
-  displayName: Time Warp
-  description: 
-  cost: 4
+  icon: {fileID: -578059378, guid: 3e1de1375bdbf734daf687cf0f48e4e5, type: 3}
+  displayName: Shard Of Time
+  description: "Ng\u01B0ng \u0111\u1ECDng th\u1EDDi gian, \"B\u1EC3 Pha L\xE2u\"."
+  cost: 5
   unlockedByDefault: 0
-  skillType: 0
+  skillType: 4
   upgradeData:
-    upgradeType: 0
+    upgradeType: 21
     cooldown: 12
     damageScaleData:
-      physical: 1
+      physical: 0
       elemental: 1
       chillDuration: 3
       chillSlowMultiplier: 0.2
-      burnDuration: 3
-      burnDamageScale: 1
-      shockDuration: 3
-      shockDamageScale: 1
-      shockCharge: 0.4
+      burnDuration: 0
+      burnDamageScale: 0
+      shockDuration: 0
+      shockDamageScale: 0
+      shockCharge: 0

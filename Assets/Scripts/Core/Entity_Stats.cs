@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Entity_Stats : MonoBehaviour
 {
-    public Stat_SetupSO defaultStatSetup;
+    public StatSetupDataSO defaultStatSetup;
 
     public Stat_ResourceGroup resources;
     public Stat_OffenseGroup offense;

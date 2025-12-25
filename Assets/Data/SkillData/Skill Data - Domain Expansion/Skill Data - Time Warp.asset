@@ -10,16 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c1da3b09957e3a3439b11d86990ca4b3, type: 3}
-  m_Name: Skill Data - Echo Of The Past
+  m_Name: Skill Data - Time Warp
   m_EditorClassIdentifier: 
-  icon: {fileID: 1508200339, guid: 3e1de1375bdbf734daf687cf0f48e4e5, type: 3}
-  displayName: Echo Of The Past
-  description: 
-  cost: 5
+  icon: {fileID: -190628337, guid: 3e1de1375bdbf734daf687cf0f48e4e5, type: 3}
+  displayName: Time Warp
+  description: "Ng\u01B0ng \u0111\u1ECDng th\u1EDDi gian, b\xE0nh tr\u01B0\u1EDBng
+    l\xE3nh \u0111\u1ECBa"
+  cost: 4
   unlockedByDefault: 0
-  skillType: 0
+  skillType: 4
   upgradeData:
-    upgradeType: 0
+    upgradeType: 19
     cooldown: 12
     damageScaleData:
       physical: 1

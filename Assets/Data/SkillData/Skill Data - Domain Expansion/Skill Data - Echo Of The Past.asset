@@ -10,24 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c1da3b09957e3a3439b11d86990ca4b3, type: 3}
-  m_Name: Skill Data - Shard Of Time
+  m_Name: Skill Data - Echo Of The Past
   m_EditorClassIdentifier: 
-  icon: {fileID: -578059378, guid: 3e1de1375bdbf734daf687cf0f48e4e5, type: 3}
-  displayName: Shard Of Time
-  description: 
+  icon: {fileID: 1508200339, guid: 3e1de1375bdbf734daf687cf0f48e4e5, type: 3}
+  displayName: Echo Of The Past
+  description: "G\u1ECDi \u0111\u1EC7"
   cost: 5
   unlockedByDefault: 0
-  skillType: 0
+  skillType: 4
   upgradeData:
-    upgradeType: 0
+    upgradeType: 20
     cooldown: 12
     damageScaleData:
       physical: 1
       elemental: 1
-      chillDuration: 3
-      chillSlowMultiplier: 0.2
-      burnDuration: 3
-      burnDamageScale: 1
-      shockDuration: 3
-      shockDamageScale: 1
-      shockCharge: 0.4
+      chillDuration: 0
+      chillSlowMultiplier: 0
+      burnDuration: 0
+      burnDamageScale: 0
+      shockDuration: 0
+      shockDamageScale: 0
+      shockCharge: 0
