@@ -30,8 +30,15 @@ public enum SkillUpgradeType
     TimeEcho_MultiAttack, //time echo can perform N attacks
     TimeEcho_ChanceToDuplicate, //time echo has a chance to create another time echo when attacks
 
-    TimeEcho_HealWips, //sdsadsdasdasdadas
 
-    TimeEcho_CleanseWips, //Wisp will now remove negative effects from player
-    TimeEcho_CooldownWisp, //Wisp will reduce cooldown of all skills by N second.
+    //khong lam cai nay
+    //TimeEcho_HealWips, //sdsadsdasdasdadas
+
+    //TimeEcho_CleanseWips, //Wisp will now remove negative effects from player
+    //TimeEcho_CooldownWisp, //Wisp will reduce cooldown of all skills by N second.
+
+    //Domain Expansion
+    Domain_SlowingDown,//tao 1 vung khong gian, lam cham moi ke dich
+    Domain_EchoSpam,//spam echo ra danh trong vung khong gian bi lam cham do
+    Domain_ShardSpam,//vung khong gian tao ra con bao shard, tan cong ke thu
 }

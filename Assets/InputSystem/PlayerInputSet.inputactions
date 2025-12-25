@@ -95,6 +95,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "UltimateSpell",
+                    "type": "Button",
+                    "id": "b10d4300-de13-4352-a72c-36e365e7aae6",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -243,8 +252,19 @@
                 },
                 {
                     "name": "",
-                    "id": "ee3e5838-de3c-4add-a5cf-41acb9b53d53",
+                    "id": "4b348722-f2d1-4081-a515-823d95a3ecc6",
                     "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard & Mouse",
+                    "action": "UltimateSpell",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d76408d3-8c25-4546-9df3-e3f8c8408af9",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard & Mouse",
