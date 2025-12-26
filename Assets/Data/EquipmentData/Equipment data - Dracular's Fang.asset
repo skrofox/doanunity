@@ -13,8 +13,16 @@ MonoBehaviour:
   m_Name: Equipment data - Dracular's Fang
   m_EditorClassIdentifier: 
   itemName: "R\u0103ng Nanh C\u1EE7a Dracular"
-  itemIcon: {fileID: 0}
-  itemType: 0
+  itemIcon: {fileID: -2077033448, guid: 3e1de1375bdbf734daf687cf0f48e4e5, type: 3}
+  itemType: 1
   maxStackSize: 1
-  itemEffect: {fileID: 0}
-  modifiers: []
+  itemEffect: {fileID: 11400000, guid: e91f5b2df5168c743837b5a8a25050af, type: 2}
+  modifiers:
+  - statType: 7
+    value: 10
+  - statType: 11
+    value: 5
+  - statType: 8
+    value: 0.2
+  - statType: 6
+    value: 0.1

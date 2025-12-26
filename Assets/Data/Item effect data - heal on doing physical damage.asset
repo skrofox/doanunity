@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6c9a83af0f5a0f4a99e6b455c04dd73, type: 3}
   m_Name: Item effect data - heal on doing physical damage
   m_EditorClassIdentifier: 
-  effectDescription: 
+  effectDescription: "T\u0103ng 20% h\xFAt m\xE1u cho m\u1ED7i \u0111\xF2n \u0111\xE1nh
+    th\u01B0\u1EDDng."
   percentHealedOnAttack: 0.2
