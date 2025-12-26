@@ -73,6 +73,7 @@ public class Player : Entity
         stats = GetComponent<Player_Stats>();
 
         input = new PlayerInputSet();
+        ui.SetupControlsUI(input);
 
         idleState = new Player_IdleState(this, stateMachine, "idle");
         moveState = new Player_MoveState(this, stateMachine, "move");
@@ -196,9 +197,6 @@ public class Player : Entity
 
         input.Player.QuickItemSlot_1.performed += ctx => inventory.TryUseQuickItemInSlot(1);
         input.Player.QuickItemSlot_2.performed += ctx => inventory.TryUseQuickItemInSlot(2);
-
-        input.Player.ToggleSkillTreeUI.performed += ctx => ui.ToggleSkillTreeUI();
-        input.Player.ToggleInventoryUI.performed += ctx => ui.ToggleInventoryUI();
     }
 
     private void OnDisable()
