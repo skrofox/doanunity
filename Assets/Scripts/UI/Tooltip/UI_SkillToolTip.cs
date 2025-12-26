@@ -35,15 +35,22 @@ public class UI_SkillToolTip : UI_ToolTip
 
     }
 
-    public void ShowToolTip(bool show, RectTransform targetRect, UI_TreeNode node)// Skill_DataSO skillData, UI_TreeNode[] conflitNodes, )
+    public void ShowToolTip(bool show, RectTransform targetRect, SkillDataSO skillData, UI_TreeNode node)// Skill_DataSO skillData, UI_TreeNode[] conflitNodes, )
     {
         base.ShowToolTip(show, targetRect);
 
         if (!show) return;
 
-        skillName.text = node.skillData.displayName;
-        skillDescription.text = node.skillData.description;
-        skillCooldown.text = "Thời gian hồi chiêu:" + node.skillData.upgradeData.cooldown + " giây.";
+        skillName.text = skillData.displayName;
+        skillDescription.text = skillData.description;
+        skillCooldown.text = "Thời gian hồi chiêu:" + skillData.upgradeData.cooldown + " giây.";
+
+        if (node == null)
+        {
+            skillRequirements.text = "";
+            return;
+        }
+
 
         string skillLockedText = $"<color={importantInfoHex}> {lockedSkillText}</color>";
         string requirements = node.isLooked ? skillLockedText : GetRequirements(node.skillData.cost, node.neededNodes, node.conflictNodes);

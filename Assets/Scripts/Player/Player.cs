@@ -6,13 +6,14 @@ public class Player : Entity
 {
     public static event Action OnPlayerDeath;
 
-    private UI ui;
+    public UI ui { get; private set; }
     public PlayerInputSet input { get; private set; }
     public Player_SkillManager skillManager { get; private set; }
     public Player_VFX vfx { get; private set; }
     public Entity_Health health { get; private set; }
     public Entity_StatusHandler statusHandler { get; private set; }
     public Player_Combat combat { get; private set; }
+    public Inventory_Player inventory { get; private set; }
 
 
     #region State Variables
@@ -68,6 +69,7 @@ public class Player : Entity
         skillManager = GetComponent<Player_SkillManager>();
         statusHandler = GetComponent<Entity_StatusHandler>();
         combat = GetComponent<Player_Combat>();
+        inventory = GetComponent<Inventory_Player>();
 
         input = new PlayerInputSet();
 
@@ -190,6 +192,9 @@ public class Player : Entity
         input.Player.TimeEcho.performed += ctx => skillManager.timeEcho.TryUseSkill();
 
         input.Player.Interact.performed += ctx => TryInteract();
+
+        input.Player.QuickItemSlot_1.performed += ctx => inventory.TryUseQuickItemInSlot(1);
+        input.Player.QuickItemSlot_2.performed += ctx => inventory.TryUseQuickItemInSlot(2);
 
         input.Player.ToggleSkillTreeUI.performed += ctx => ui.ToggleSkillTreeUI();
         input.Player.ToggleInventoryUI.performed += ctx => ui.ToggleInventoryUI();

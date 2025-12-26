@@ -9,6 +9,7 @@ public class UI : MonoBehaviour
     public UI_Inventory inventoryUI { get; private set; }
     public UI_Storage storageUI { get; private set; }
     public UI_Craft craftUI { get; private set; }
+    public UI_InGame inGameUI { get; private set; }
 
     private bool skillTreeEnabled;
     private bool inventoryEnabled;
@@ -23,9 +24,15 @@ public class UI : MonoBehaviour
         inventoryUI = GetComponentInChildren<UI_Inventory>(true);
         storageUI = GetComponentInChildren<UI_Storage>(true);
         craftUI = GetComponentInChildren<UI_Craft>(true);
+        inGameUI = GetComponentInChildren<UI_InGame>(true);
 
         skillTreeEnabled = skillTreeUI.gameObject.activeSelf;
         inventoryEnabled = inventoryUI.gameObject.activeSelf;
+    }
+
+    private void Start()
+    {
+        skillTreeUI.UnlockDefaultSkills();
     }
 
     public void SwitchOffAllToolTip()
