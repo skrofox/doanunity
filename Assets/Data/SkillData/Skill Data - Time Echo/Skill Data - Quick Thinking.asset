@@ -12,7 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1da3b09957e3a3439b11d86990ca4b3, type: 3}
   m_Name: Skill Data - Quick Thinking
   m_EditorClassIdentifier: 
-  cost: 3
   icon: {fileID: 534589724, guid: 3e1de1375bdbf734daf687cf0f48e4e5, type: 3}
   displayName: Quick Thinking
   description: errrrrrrrrrrrrrrrrrrrrrrrrrr
+  cost: 3
+  unlockedByDefault: 0
+  skillType: 0
+  upgradeData:
+    upgradeType: 0
+    cooldown: 5
+    damageScaleData:
+      physical: 1
+      elemental: 1
+      chillDuration: 3
+      chillSlowMultiplier: 0.2
+      burnDuration: 3
+      burnDamageScale: 1
+      shockDuration: 3
+      shockDamageScale: 1
+      shockCharge: 0.4

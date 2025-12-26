@@ -40,15 +40,16 @@ public class Inventory_Base : MonoBehaviour
     }
     public Inventory_Item FindStackable(Inventory_Item itemToAdd)
     {
-        List<Inventory_Item> stackableItems = itemList.FindAll(item => item.itemData == itemToAdd.itemData);
+        return itemList.Find(item => item.itemData == itemToAdd.itemData && item.CanAddStack());
+        //List<Inventory_Item> stackableItems = itemList.FindAll(item => item.itemData == itemToAdd.itemData);
 
-        foreach (var stackableItem in stackableItems)
-        {
-            if (stackableItem.CanAddStack())
-                return stackableItem;
-        }
+        //foreach (var stackableItem in stackableItems)
+        //{
+        //    if (stackableItem.CanAddStack())
+        //        return stackableItem;
+        //}
 
-        return null;
+        //return null;
     }
 
     public void AddItem(Inventory_Item itemToAdd)
