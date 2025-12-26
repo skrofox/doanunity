@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fffe3179b75be84f9e3cadec672734d, type: 3}
+  m_Name: Item effect data - Ice Blast On Taking Damage
+  m_EditorClassIdentifier: 
+  effectDescription: "Khi c\xF2n d\u01B0\u1EDBi 25% m\xE1u, k\xEDch ho\u1EA1t n\u1ED9i
+    t\u1EA1i gi\xE1p b\u0103ng, g\xE2y 150 s\xE1t th\u01B0\u01A1ng b\u0103ng xung
+    quanh ng\u01B0\u1EDDi ch\u01A1i. (H\u1ED3i chi\xEAu 40 gi\xE2y)"
+  effectData:
+    ChillDuration: 3
+    chillSlowMultiplier: 0.6
+    burnDuration: 0
+    totalburnDamage: 0
+    shockDuration: 0
+    shockDamage: 0
+    shockCharge: 0
+  iceDamage: 150
+  whatIsEnemy:
+    serializedVersion: 2
+    m_Bits: 256
+  healthPercentTrigger: 0.25
+  cooldown: 40
+  iceBlastVfx: {fileID: 2331102052571753295, guid: adbb9d301ab9bce49888e4983f48cc41, type: 3}
+  onHitVfx: {fileID: 5066053127664502388, guid: 0646b9acca8400d44b591da564235bfb, type: 3}

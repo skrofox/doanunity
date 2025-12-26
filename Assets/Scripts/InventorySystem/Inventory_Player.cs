@@ -41,6 +41,7 @@ public class Inventory_Player : Inventory_Base
 
         slot.equipedItem = itemToEquip;
         slot.equipedItem.AddModifiers(player.stats);
+        slot.equipedItem.AddItemEffect(player);
 
         player.health.SetHealthToPercent(savedHealthPercent);
         RemoveItem(itemToEquip);
@@ -61,6 +62,7 @@ public class Inventory_Player : Inventory_Base
             slotToUnEquip.equipedItem = null;
 
         itemToUnEquip.RemoveModifiers(player.stats);
+        itemToUnEquip.RemoveItemEffect();
 
         player.health.SetHealthToPercent(savedHealthPercent);
         AddItem(itemToUnEquip);

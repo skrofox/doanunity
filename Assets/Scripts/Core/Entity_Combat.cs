@@ -1,7 +1,10 @@
+using System;
 using UnityEngine;
 
 public class Entity_Combat : MonoBehaviour
 {
+    public event Action<float> OnDoingPhysicalDamage; 
+
     private Entity_VFX vfx;
     private Entity_Stats stats;
 
@@ -40,17 +43,20 @@ public class Entity_Combat : MonoBehaviour
             AttackData attackData = stats.GetAttackData(basicAttackScale);
             Entity_StatusHandler statusHandle = target.GetComponent<Entity_StatusHandler>();
 
-            float physDamage = attackData.physicalDamage;
+            float physicalDamage = attackData.physicalDamage;
             float elementalDamage = attackData.elemtentalDamage;
             ElementType element = attackData.element;
 
-            bool targetGotHit = damegable.TakeDamage(physDamage, elementalDamage, element, transform);
+            bool targetGotHit = damegable.TakeDamage(physicalDamage, elementalDamage, element, transform);
 
             if (element != ElementType.None)
                 statusHandle?.ApplyStatusEffect(element, attackData.effectData);
 
             if (targetGotHit)
+            {
+                OnDoingPhysicalDamage?.Invoke(physicalDamage);
                 vfx.CreateOnHitVFX(target.transform, attackData.isCrit, element);
+            }
         }
     }
 
