@@ -25,4 +25,6 @@ public class UI_PlayerStat : MonoBehaviour
             statSlot.UpdateStatValue();
         }
     }
+
+
 }

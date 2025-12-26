@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43bd74606b6a75848b680a3db0407bb6, type: 3}
-  m_Name: Material data - Animal Leather
+  m_Name: Material data - Wooden Log
   m_EditorClassIdentifier: 
-  itemName: Animal Leather
-  itemIcon: {fileID: 322074962, guid: 3e1de1375bdbf734daf687cf0f48e4e5, type: 3}
+  itemName: Wooden Log
+  itemIcon: {fileID: -1113363717, guid: 3e1de1375bdbf734daf687cf0f48e4e5, type: 3}
   itemType: 0
-  maxStackSize: 10
+  maxStackSize: 24
   itemEffect: {fileID: 0}
+  craftRecipe: []
