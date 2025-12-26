@@ -29,12 +29,20 @@ public class UI_InGame : MonoBehaviour
 
         skillSlots = GetComponentsInChildren<UI_SkillSlot>(true);
         inventory = player.inventory;
-        inventory.OnQuickSlotUsed += UpdateQuickSlotsUI;
+        inventory.OnInventoryChange += UpdateQuickSlotsUI;
+        inventory.OnQuickSlotUsed += PlayQuickSlotFeedback;
     }
 
-    public void UpdateQuickSlotsUI(int slotNumber, Inventory_Item itemInSlot)
+    public void PlayQuickSlotFeedback(int slotNumber) => quickItemslots[slotNumber].SimulateButtonFeedback();
+
+    public void UpdateQuickSlotsUI()
     {
-        quickItemslots[slotNumber].UpdateQuickSlotUI(itemInSlot);
+        Inventory_Item[] quickItems = inventory.quickItems;
+
+        for (int i = 0; i < quickItems.Length; i++)
+        {
+            quickItemslots[i].UpdateQuickSlotUI(quickItems[i]);
+        }
     }
 
     public void OpenQuickItemOptions(UI_QuickItemSlot quickItemSlot, RectTransform targetRect)

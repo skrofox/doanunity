@@ -14,7 +14,7 @@ public class Player : Entity
     public Entity_StatusHandler statusHandler { get; private set; }
     public Player_Combat combat { get; private set; }
     public Inventory_Player inventory { get; private set; }
-
+    public Player_Stats stats { get; private set; }
 
     #region State Variables
 
@@ -70,6 +70,7 @@ public class Player : Entity
         statusHandler = GetComponent<Entity_StatusHandler>();
         combat = GetComponent<Player_Combat>();
         inventory = GetComponent<Inventory_Player>();
+        stats = GetComponent<Player_Stats>();
 
         input = new PlayerInputSet();
 

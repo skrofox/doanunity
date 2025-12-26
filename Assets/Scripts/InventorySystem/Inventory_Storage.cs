@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Inventory_Storage : Inventory_Base
@@ -95,10 +96,12 @@ public class Inventory_Storage : Inventory_Base
         }
         else
         {
-            materialStash.Add(itemToAdd);
+            var newItemToAdd = new Inventory_Item(itemToAdd.itemData);
+            materialStash.Add(newItemToAdd);
         }
 
         TriggerUpdateUI();
+        materialStash = materialStash.OrderBy(item => item.itemData.name).ToList(); 
     }
 
     public Inventory_Item StackableInStash(Inventory_Item itemToAdd)
