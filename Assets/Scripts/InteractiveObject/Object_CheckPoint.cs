@@ -2,42 +2,67 @@
 
 public class Object_CheckPoint : MonoBehaviour, ISaveable
 {
-    private Object_CheckPoint[] allCheckPoints;
+    [SerializeField] private string checkpointId;
+    [SerializeField] private Transform respawnPoint;
+
+    public bool isActive { get; private set; }
     private Animator anim;
+    private AudioSource fireAudioSource;
 
     private void Awake()
     {
         anim = GetComponentInChildren<Animator>();
-        allCheckPoints = FindObjectsByType<Object_CheckPoint>(FindObjectsSortMode.None);
+        fireAudioSource = GetComponent<AudioSource>();
     }
 
+    public string GetCheckpointId()
+    {
+        return checkpointId;
+    }
+
+    public Vector3 GetPosition()
+    {
+        return respawnPoint == null ? transform.position : respawnPoint.position;
+    }
 
     public void ActiveCheckPoint(bool active)
     {
+        isActive = active;
         anim.SetBool("isActive", active);
+
+        if (isActive && fireAudioSource.isPlaying == false)
+            fireAudioSource.Play();
+        if(isActive==false)
+            fireAudioSource.Stop();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        foreach (var point in allCheckPoints)
-        {
-            point.ActiveCheckPoint(false);
-        }
-
-        SaveManager.instance.GetGameData().savedCheckPoint = transform.position;
         ActiveCheckPoint(true);
     }
 
     public void LoadData(GameData data)
     {
-        bool active = data.savedCheckPoint == transform.position;
+        bool active = data.unlockCheckPoints.TryGetValue(checkpointId, out active);
         ActiveCheckPoint(active);
-
-        if (active)
-            Player.instance.TeleportPlayer(transform.position);
     }
 
     public void SaveData(ref GameData data)
     {
+        if (isActive == false)
+            return;
+
+        if (data.unlockCheckPoints.ContainsKey(checkpointId) == false)
+            data.unlockCheckPoints.Add(checkpointId, true);
+    }
+
+    private void OnValidate()
+    {
+#if UNITY_EDITOR
+        if (string.IsNullOrEmpty(checkpointId))
+        {
+            checkpointId = System.Guid.NewGuid().ToString();
+        }
+#endif
     }
 }

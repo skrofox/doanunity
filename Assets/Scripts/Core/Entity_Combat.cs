@@ -3,8 +3,9 @@ using UnityEngine;
 
 public class Entity_Combat : MonoBehaviour
 {
-    public event Action<float> OnDoingPhysicalDamage; 
+    public event Action<float> OnDoingPhysicalDamage;
 
+    private Entity_SFX sfx;
     private Entity_VFX vfx;
     private Entity_Stats stats;
 
@@ -26,11 +27,13 @@ public class Entity_Combat : MonoBehaviour
     private void Awake()
     {
         vfx = GetComponent<Entity_VFX>();
+        sfx = GetComponent<Entity_SFX>();
         stats = GetComponent<Entity_Stats>();
     }
 
     public void PerformAttack()
     {
+        bool targetGotHit = false;
         GetDetectedColliders();
 
         foreach (var target in GetDetectedColliders())
@@ -47,7 +50,7 @@ public class Entity_Combat : MonoBehaviour
             float elementalDamage = attackData.elemtentalDamage;
             ElementType element = attackData.element;
 
-            bool targetGotHit = damegable.TakeDamage(physicalDamage, elementalDamage, element, transform);
+            targetGotHit = damegable.TakeDamage(physicalDamage, elementalDamage, element, transform);
 
             if (element != ElementType.None)
                 statusHandle?.ApplyStatusEffect(element, attackData.effectData);
@@ -56,7 +59,17 @@ public class Entity_Combat : MonoBehaviour
             {
                 OnDoingPhysicalDamage?.Invoke(physicalDamage);
                 vfx.CreateOnHitVFX(target.transform, attackData.isCrit, element);
+                sfx?.PlayAttackHit();
             }
+            //else
+            //{
+            //    sfx?.PlayAttackMiss();
+            //}
+        }
+
+        if(targetGotHit == false)
+        {
+            sfx?.PlayAttackMiss();
         }
     }
 

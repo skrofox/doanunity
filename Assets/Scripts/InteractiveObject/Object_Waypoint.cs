@@ -1,35 +1,44 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Object_Waypoint : MonoBehaviour
 {
     [SerializeField] private string transferToScene;
     [Space]
-    public RespawnType waypointType;
-    [SerializeField] private RespawnType connectedWaypoint;
-    [SerializeField] private bool canBeTriggerd = true;
+    [SerializeField] private RespawnType waypointType;
+    [SerializeField] private RespawnType conntedWaypoint;
+    [SerializeField] private Transform respwanPoint;
+    [SerializeField] private bool canBeTriggered = true;
+    
+    public RespawnType GetWaypointType() => waypointType;
+
+    public Vector3 GetPositionAndSetTriggerFalse()
+    {
+        canBeTriggered = false;
+        return respwanPoint == null ? transform.position : respwanPoint.position;
+    }
 
     private void OnValidate()
     {
-        gameObject.name = "Object Waypoint - " + waypointType.ToString() + " - " + transferToScene;
+        gameObject.name = "Object_Waypoint - " + waypointType.ToString() + " - " + transferToScene;
 
         if (waypointType == RespawnType.Enter)
-            connectedWaypoint = RespawnType.Exit;
+            conntedWaypoint = RespawnType.Exit;
 
         if (waypointType == RespawnType.Exit)
-            connectedWaypoint = RespawnType.Enter;
+            conntedWaypoint = RespawnType.Enter;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (canBeTriggerd == false)
+        if (canBeTriggered == false)
             return;
 
-        SaveManager.instance.SaveGame();
+        GameManager.instance.ChangeScene(transferToScene, conntedWaypoint);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        canBeTriggerd = true;
-
+        canBeTriggered = true;
     }
 }
