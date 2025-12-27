@@ -17,8 +17,8 @@ public class Inventory_Item
     {
         this.itemData = itemData;
         itemEffect = itemData.itemEffect;
-        modifiers = EquipmentData()?.modifiers;
 
+        modifiers = EquipmentData()?.modifiers;
         itemId = itemData.itemName + " - " + Guid.NewGuid();
     }
 

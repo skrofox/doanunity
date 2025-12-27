@@ -12,6 +12,8 @@ public class Inventory_Player : Inventory_Base
     [Header("Quick Item Slots")]
     public Inventory_Item[] quickItems = new Inventory_Item[2];
 
+
+
     protected override void Awake()
     {
         base.Awake();
@@ -97,5 +99,74 @@ public class Inventory_Player : Inventory_Base
 
         player.health.SetHealthToPercent(savedHealthPercent);
         AddItem(itemToUnEquip);
+    }
+
+    public override void SaveData(ref GameData data)
+    {
+        data.playerLevel = 1;//e.g. player.level;
+        data.inventory.Clear();
+        data.equipedItems.Clear();
+
+        foreach (var item in itemList)
+        {
+            if (item != null && item.itemData != null)
+            {
+                string saveId = item.itemData.saveId;
+
+                if (data.inventory.ContainsKey(saveId) == false)
+                    data.inventory[saveId] = 0;
+
+                data.inventory[saveId] += item.stackSize;
+            }
+        }
+
+        foreach (var slot in equidList)
+        {
+            if (slot.HasItem())
+                data.equipedItems[slot.equipedItem.itemData.saveId] = slot.slotType;
+        }
+    }
+
+    public override void LoadData(GameData data)
+    {
+        int playerLevel = data.playerLevel;
+
+        foreach (var entry in data.inventory)
+        {
+            string saveId = entry.Key;
+            int stackSize = entry.Value;
+
+            ItemDataSO itemData = itemDataBase.GetItemData(saveId);
+
+            if (itemData == null)
+            {
+                Debug.LogWarning("Item not found" + saveId);
+                continue;
+            }
+
+            Inventory_Item itemToLoad = new Inventory_Item(itemData);
+
+            for (int i = 0; i < stackSize; i++)
+            {
+                AddItem(itemToLoad);
+            }
+        }
+
+        foreach (var entry in data.equipedItems)
+        {
+            string saveId = entry.Key;
+            ItemType loadedSlotType = entry.Value;
+
+            ItemDataSO itemData = itemDataBase.GetItemData(saveId);
+            Inventory_Item itemToLoad = new Inventory_Item(itemData);
+
+            var slot = equidList.Find(slot => slot.slotType == loadedSlotType && slot.HasItem() == false);
+
+            slot.equipedItem = itemToLoad;
+            slot.equipedItem.AddModifiers(player.stats);
+            slot.equipedItem.AddItemEffect(player);
+        }
+
+        TriggerUpdateUI();
     }
 }
