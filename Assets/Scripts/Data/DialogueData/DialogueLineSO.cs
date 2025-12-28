@@ -11,7 +11,7 @@ public class DialogueLineSO : ScriptableObject
     [Header("Text options")]
     [TextArea] public string[] textLine;
 
-        public string GetRandomLine()
+    public string GetRandomLine()
     {
         return textLine[Random.Range(0, textLine.Length)];
     }
