@@ -61,7 +61,9 @@ public class Enemy_ArcherElfBattleState : Enemy_BattleState
                 enemy.SetVelocity(0, rb.linearVelocity.y);
 
                 if (enemy.PlayerDetected() == false)
+                {
                     enemy.HandleFlip(DirectionToPlayer());
+                }
             }
         }
     }
