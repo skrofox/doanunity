@@ -52,6 +52,11 @@ public class Object_NPC : MonoBehaviour
         }
     }
 
+    public virtual void Interact()
+    {
+        // To be overridden by derived classes
+    }
+
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         player = collision.transform;

@@ -2,9 +2,15 @@ using UnityEngine;
 
 public class Object_Merchant : Object_NPC, IInteractable
 {
-    public void Interact()
+    [Header("Dialogue & Quest")]
+    [SerializeField] private DialogueLineSO firstDialogueLine;
+
+    public override void Interact()
     {
-        Debug.Log("Open Merchant Shop!");
+        base.Interact();
+
+
+        ui.OpenDialogueUI(firstDialogueLine);
     }
 
 

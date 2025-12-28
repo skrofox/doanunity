@@ -1,16 +1,8 @@
 using UnityEngine;
 
-public class DialogSpeakerSO : MonoBehaviour
+[CreateAssetMenu(fileName = "Speaker - ", menuName = "RPG Setup/Dialog Data/New Speaker Data")]
+public class DialogSpeakerSO : ScriptableObject
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public string speakerName;
+    public Sprite speakerPortrait;
 }

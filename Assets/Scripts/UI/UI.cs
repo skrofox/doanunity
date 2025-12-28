@@ -21,6 +21,7 @@ public class UI : MonoBehaviour
     public UI_Options optionsUI { get; private set; }
     public UI_DeathScreen deathScreenUI { get; private set; }
     public UI_FadeScreen fadeScreenUI { get; private set; }
+    public UI_Dialogue dialogueUI { get; private set; }
 
     private bool skillTreeEnabled;
     private bool inventoryEnabled;
@@ -41,6 +42,7 @@ public class UI : MonoBehaviour
         optionsUI = GetComponentInChildren<UI_Options>(true);
         deathScreenUI = GetComponentInChildren<UI_DeathScreen>(true);
         fadeScreenUI = GetComponentInChildren<UI_FadeScreen>(true);
+        dialogueUI = GetComponentInChildren<UI_Dialogue>(true);
 
         skillTreeEnabled = skillTreeUI.gameObject.activeSelf;
         inventoryEnabled = inventoryUI.gameObject.activeSelf;
@@ -75,6 +77,12 @@ public class UI : MonoBehaviour
 
             Time.timeScale = 0;
             OpenOptionsUI();
+        };
+
+        input.UI.DialogueInteraction.performed += ctx =>
+        {
+            if (dialogueUI.gameObject.activeInHierarchy)
+                dialogueUI.DialogueInteraction();
         };
     }
 
@@ -159,6 +167,15 @@ public class UI : MonoBehaviour
 
         //StopPlayerControls(inventoryEnabled);
         StopPlayerControlIfNeeded();
+    }
+
+    public void OpenDialogueUI(DialogueLineSO firstLine)
+    {
+        StopPlayerControls(true);
+        HideAllToolTip();
+
+        dialogueUI.gameObject.SetActive(true);
+        dialogueUI.PlayDialogueLine(firstLine);
     }
 
     public void OpenStorageUI(bool openStorageUI)
