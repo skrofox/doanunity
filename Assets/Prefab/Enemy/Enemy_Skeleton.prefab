@@ -135,7 +135,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &335345943269603425
 Transform:
   m_ObjectHideFlags: 0
@@ -180,6 +180,8 @@ MonoBehaviour:
   secondaryWallCheck: {fileID: 0}
   battleMoveSpeed: 3
   attackDistance: 2
+  attackCooldown: 0.5
+  canChasePlayer: 1
   battleTimeDuration: 5
   minRetreatDistance: 1
   retreatVelocity: {x: 5, y: 3}
@@ -282,7 +284,7 @@ MonoBehaviour:
     shockCharge: 0.4
   targetCheck: {fileID: 3145611193825195872}
   targetCheckRadius: 1
-  WhatIsTarget:
+  whatIsTarget:
     serializedVersion: 2
     m_Bits: 128
 --- !u!114 &2658536226975228976
@@ -317,6 +319,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb3b48ec0f4f51549b703c3a50209aa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  imageEchoInterval: 0.05
+  imageEchoPrefab: {fileID: 0}
   onDamageMaterial: {fileID: 2100000, guid: cbd668e678f0a1c4e9d44f3e35eba7d9, type: 2}
   onDamageVFXDuration: 0.13
   hitVfxColor: {r: 0.5411765, g: 0.5411765, b: 0.5411765, a: 1}
@@ -553,7 +557,7 @@ RectTransform:
   m_Father: {fileID: 3974044930272203546}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.000015258789, y: 0}
   m_SizeDelta: {x: -0.000030518, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

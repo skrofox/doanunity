@@ -11,18 +11,11 @@ public class Entity_Combat : MonoBehaviour
 
     public DamageScaleData basicAttackScale;
 
-    [Header("Taget Detection")]
+    [Header("Target detection")]
     [SerializeField] private Transform targetCheck;
     [SerializeField] private float targetCheckRadius = 1;
-    [SerializeField] private LayerMask WhatIsTarget;
+    [SerializeField] private LayerMask whatIsTarget;
 
-    //[Header("Status effect details")]
-    //[SerializeField] private float defaultDuration = 3;
-    //[SerializeField] private float chillSlowMultiplier = .2f;
-    //[SerializeField] private float electrifyChargeBuildUp = .4f;
-    //[Space]
-    //[SerializeField] private float fireScale = .8f;
-    //[SerializeField] private float lightningScale = 1.5f;
 
     private void Awake()
     {
@@ -34,26 +27,26 @@ public class Entity_Combat : MonoBehaviour
     public void PerformAttack()
     {
         bool targetGotHit = false;
-        GetDetectedColliders(WhatIsTarget);
 
-        foreach (var target in GetDetectedColliders(WhatIsTarget))
+        foreach (var target in GetDetectedColliders(whatIsTarget))
         {
-            IDamagable damegable = target.GetComponent<IDamagable>();
+            IDamagable damageable = target.GetComponent<IDamagable>();
 
-            if (damegable == null)
-                continue; //bo qua muc tiu hien tai, di den mt tiep theo
+            if (damageable == null)
+                continue; // skip target, go to next target
 
             AttackData attackData = stats.GetAttackData(basicAttackScale);
-            Entity_StatusHandler statusHandle = target.GetComponent<Entity_StatusHandler>();
+            Entity_StatusHandler statusHandler = target.GetComponent<Entity_StatusHandler>();
+
 
             float physicalDamage = attackData.physicalDamage;
-            float elementalDamage = attackData.elemtentalDamage;
+            float elementalDamage = attackData.elementalDamage;
             ElementType element = attackData.element;
 
-            targetGotHit = damegable.TakeDamage(physicalDamage, elementalDamage, element, transform);
+            targetGotHit = damageable.TakeDamage(physicalDamage, elementalDamage, element, transform);
 
             if (element != ElementType.None)
-                statusHandle?.ApplyStatusEffect(element, attackData.effectData);
+                statusHandler?.ApplyStatusEffect(element, attackData.effectData);
 
             if (targetGotHit)
             {
@@ -61,38 +54,35 @@ public class Entity_Combat : MonoBehaviour
                 vfx.CreateOnHitVFX(target.transform, attackData.isCrit, element);
                 sfx?.PlayAttackHit();
             }
-            //else
-            //{
-            //    sfx?.PlayAttackMiss();
-            //}
         }
 
         if (targetGotHit == false)
-        {
             sfx?.PlayAttackMiss();
-        }
     }
 
-    public void PerformAttackOnTarget(Transform target)
+    public void PerformAttackOnTarget(Transform target, DamageScaleData damageScaleData = null)
     {
         bool targetGotHit = false;
 
-        IDamagable damegable = target.GetComponent<IDamagable>();
 
-        if (damegable == null)
-            return; //bo qua muc tiu hien tai, di den mt tiep theo
+        IDamagable damageable = target.GetComponent<IDamagable>();
 
+        if (damageable == null)
+            return; // skip target, go to next target
+
+        DamageScaleData damageScale = damageScaleData == null ? basicAttackScale : damageScaleData;
         AttackData attackData = stats.GetAttackData(basicAttackScale);
-        Entity_StatusHandler statusHandle = target.GetComponent<Entity_StatusHandler>();
+        Entity_StatusHandler statusHandler = target.GetComponent<Entity_StatusHandler>();
+
 
         float physicalDamage = attackData.physicalDamage;
-        float elementalDamage = attackData.elemtentalDamage;
+        float elementalDamage = attackData.elementalDamage;
         ElementType element = attackData.element;
 
-        targetGotHit = damegable.TakeDamage(physicalDamage, elementalDamage, element, transform);
+        targetGotHit = damageable.TakeDamage(physicalDamage, elementalDamage, element, transform);
 
         if (element != ElementType.None)
-            statusHandle?.ApplyStatusEffect(element, attackData.effectData);
+            statusHandler?.ApplyStatusEffect(element, attackData.effectData);
 
         if (targetGotHit)
         {
@@ -101,10 +91,9 @@ public class Entity_Combat : MonoBehaviour
             sfx?.PlayAttackHit();
         }
 
+
         if (targetGotHit == false)
-        {
             sfx?.PlayAttackMiss();
-        }
     }
 
     protected Collider2D[] GetDetectedColliders(LayerMask whatToDetect)

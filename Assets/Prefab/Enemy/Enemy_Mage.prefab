@@ -825,7 +825,7 @@ MonoBehaviour:
     shockCharge: 0.4
   targetCheck: {fileID: 6025948184169961778}
   targetCheckRadius: 0.7
-  WhatIsTarget:
+  whatIsTarget:
     serializedVersion: 2
     m_Bits: 128
 --- !u!114 &5465276439124957169

@@ -35,7 +35,7 @@ public class SkillObject_Base : MonoBehaviour
             Entity_StatusHandler statusHandler = target.GetComponent<Entity_StatusHandler>();
 
             float physDamage = attackData.physicalDamage;
-            float elemDamage = attackData.elemtentalDamage;
+            float elemDamage = attackData.elementalDamage;
             ElementType element = attackData.element;
 
 

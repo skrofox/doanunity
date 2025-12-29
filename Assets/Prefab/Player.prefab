@@ -592,7 +592,7 @@ MonoBehaviour:
     shockCharge: 0.4
   targetCheck: {fileID: 7847933957504645224}
   targetCheckRadius: 1
-  WhatIsTarget:
+  whatIsTarget:
     serializedVersion: 2
     m_Bits: 256
   CounterRecovery: 0.1
@@ -783,8 +783,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.32795614}
-  m_Size: {x: 0.77, y: 1.9431227}
+  m_Offset: {x: 0, y: -0.24745014}
+  m_Size: {x: 0.77, y: 2.1041346}
   m_Direction: 0
 --- !u!114 &8309642699334049841
 MonoBehaviour:
