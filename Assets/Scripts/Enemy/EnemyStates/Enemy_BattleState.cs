@@ -19,13 +19,13 @@ public class Enemy_BattleState : EnemyState
         //if (player == null)
         //    player = enemy.GetPlayerReference();
         player ??= enemy.GetPlayerReference();
-
+         
         if (ShouldRetreat())
         {
-            rb.linearVelocity = new Vector2((enemy.retreatVelocity.x * enemy.activeSlowMultiplier) * -DirectionToPlayer(), enemy.retreatVelocity.y);
-            enemy.HandleFlip(DirectionToPlayer());
+            ShortTreat();
         }
     }
+
 
     public override void Update()
     {
@@ -50,6 +50,13 @@ public class Enemy_BattleState : EnemyState
             float xVelocity = enemy.canChasePlayer ? enemy.GetBattleMoveSpeed() : 0.0001f;
             enemy.SetVelocity(xVelocity * DirectionToPlayer(), rb.linearVelocity.y);
         }
+    }
+    protected void ShortTreat()
+    {
+        float x = (enemy.retreatVelocity.x * enemy.activeSlowMultiplier) * -DirectionToPlayer();
+        float y = enemy.retreatVelocity.y;
+        rb.linearVelocity = new Vector2(x, y);
+        enemy.HandleFlip(DirectionToPlayer());
     }
 
     protected bool CanAttack() => Time.time > lastTimeAttacked + enemy.attackCooldown;

@@ -26474,7 +26474,7 @@ Transform:
   m_GameObject: {fileID: 2542832487125195368}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.2, y: -0.37, z: 0}
+  m_LocalPosition: {x: 1.09, y: -0.18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -27419,7 +27419,7 @@ MonoBehaviour:
     shockDamageScale: 1
     shockCharge: 0.4
   targetCheck: {fileID: 5114768201208112882}
-  targetCheckRadius: 2.95
+  targetCheckRadius: 1
   WhatIsTarget:
     serializedVersion: 2
     m_Bits: 128
@@ -27466,12 +27466,12 @@ MonoBehaviour:
   primaryWallCheck: {fileID: 478083351921630010}
   secondaryWallCheck: {fileID: 0}
   battleMoveSpeed: 3
-  attackDistance: 6.05
+  attackDistance: 2
   attackCooldown: 0.5
   canChasePlayer: 1
-  battleTimeDuration: 10
-  minRetreatDistance: 0.5
-  retreatVelocity: {x: 7, y: 9}
+  battleTimeDuration: 5
+  minRetreatDistance: 1
+  retreatVelocity: {x: 0, y: 0}
   stunnedDuration: 1
   stunnedVeclocity: {x: 7, y: 7}
   canBeStunned: 0
